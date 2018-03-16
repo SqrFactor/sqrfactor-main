@@ -1,0 +1,1 @@
+{{ $user_name }} has sent you invitation  <a href="{{ URL::to('/') }}">Click</a>

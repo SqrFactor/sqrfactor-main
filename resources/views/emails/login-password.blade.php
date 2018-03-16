@@ -1,0 +1,1 @@
+<p>your login password is <strong>{{ $password }}</strong></p>

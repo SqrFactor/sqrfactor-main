@@ -1,0 +1,10 @@
+<svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <symbol id="sqricon-register" viewBox="0 0 16 17">
+            <g><rect x="0.042" y="3" width="1.958" height="14"/></g><g><rect x="2" y="15.063" width="3.125" height="1.938"/></g><g><rect x="14.125" y="3" width="1.875" height="14"/></g><g><rect x="11.166" y="15.063" width="2.959" height="1.938"/></g><g><polygon points="12,3 9,3 9,0 7,0 7,3 4,3 4,5 7,5 7,8 9,8 9,5 12,5"/></g><g><rect x="7" y="15" width="2" height="2"/></g>
+        </symbol>
+        <symbol id="sqricon-login" viewBox="0 0 16 17">
+            <g><rect x="6.975" width="2" height="9.99"/></g><g><rect x="6.975" y="15.985" width="2" height="1.998"/></g><g><rect x="0.015" y="3.996" width="1.958" height="13.987"/></g><g><rect x="1.848" y="16.034" width="3.126" height="1.936"/></g><g><rect x="1.848" y="3.996" width="3.126" height="1.936"/></g><g><rect x="14.102" y="3.996" width="1.876" height="13.987"/></g><g><rect x="11.166" y="16.034" width="2.959" height="1.936"/></g><g><rect x="11.142" y="3.996" width="2.959" height="1.936"/></g>
+        </symbol>
+    </defs>
+</svg>
