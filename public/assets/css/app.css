@@ -3527,6 +3527,7 @@ color: #f84343;
 .landing-content {
   color: #fff;
   margin-bottom: 30px;
+  margin-top: 3% ;
 }
 .landing-content > *:first-child {
   font-weight: 300;
@@ -3628,6 +3629,9 @@ color: #f84343;
   .img-rocket {
     right: 5px;
   }
+  .landing-content {
+  margin-top: 3% ;
+}
 }
 @media (max-width: 420px) {
   .img-rocket {
@@ -9306,7 +9310,8 @@ a.link-inverse:hover, a.link-inverse:focus {
 .landing-content {
   color: inherit;
   margin-bottom: 50px;
-}
+  margin-top: 30% ;
+  }
 
 .registration-login-form {
   min-height: 680px;
@@ -9408,6 +9413,11 @@ a.link-inverse:hover, a.link-inverse:focus {
 
 .top-header-thumb {
   min-height: 340px;
+}
+@media (max-width: 991px){
+  .landing-content {
+  margin-top: 3% ;
+  }  
 }
 @media (max-width: 768px) {
   .top-header-thumb {

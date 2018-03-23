@@ -7,7 +7,13 @@
     <meta name="keywords" content="sqrfactor,Social network,architects,interior designers">
 
 
+<style type="text/css">
+    
+    .login-content{
+        margin-top: 30% ;
+    }
 
+</style>
     @include('sqrfactor.partials.head')
 </head>
 <body class="login-page" data-base="{{URL::to("/")}}">
@@ -23,7 +29,7 @@
     </div>
 </div>
 <div class="container">
-    <div class="row display-flex">
+    <div class="row">
         <div class="col-lg-6">
             <div class="landing-content login-content">
                 <h1 class="text-primary">Dear Architecture Community,</h1>
@@ -42,7 +48,7 @@
                         {{-- If query string is present & its valid --}}
                         <li class="nav-item">
                             <a class="nav-link @if(isset($_REQUEST['active']) && $_REQUEST['active'] == 'signup') active @endif or_hide_button"
-                               data-toggle="tab" href="#nav-signup" role="tab">
+                               data-toggle="tab" href="#nav-signup" role="tab" >
                                 <svg class="olymp-register-icon">
                                     <use xlink:href="{{ asset('assets/icons/sqr-icons.svg#sqricon-register') }}"></use>
                                 </svg>

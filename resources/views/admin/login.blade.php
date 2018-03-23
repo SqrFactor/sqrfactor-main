@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -66,7 +66,7 @@
                 <div class="col-xs-8">
                     <div class="checkbox icheck">
                         <label>
-                            <input type="checkbox" name="remember"  {{ old('remember') ? 'checked' : '' }}> Remember Me
+                            <input type="checkbox" name="remember"  {{ old('remember') ? 'checked' : '' }}> Remember Me!
                         </label>
                     </div>
                 </div>
