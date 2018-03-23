@@ -182,7 +182,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <button type="button" class="pull-right add_work_education_details btn btn-primary btn-sm font-weight-bold">Add</button>
+                                        <button type="button" class="pull-right add_work_education_details btn btn-primary btn-sm font-weight-bold">Add EDU</button>
                                     </div>
 
                                     <hr style="width:100%;">

@@ -3,6 +3,40 @@
 @section('title') Basic Details | SqrFactor @endsection
 @section('content_description')An online platform for architects, interior designers, teachers and students to showcase their skills, apply for jobs/internships, participate in architecture competitions,follow experts and stay updated!@endsection
 
+@section('styles')
+
+    <style>
+        .add_more_email, .remove_email{
+            width:35%; 
+            height: 70%; 
+            background-color: white; 
+            border:2px solid #515365; 
+            color:#515365
+        }
+        .add_more_mail, .remove_more_mail:hover
+        {
+            background-color: #515365 !important;
+            color: white !important;
+            border:2px solid #515365 !important;
+        }
+        .add_email{
+            width:100%; 
+            height: 70%; 
+            background-color: white; 
+            border:2px solid #515365; 
+            color:#515365
+        }
+        .add_email:hover
+        {
+            background-color: #515365 !important;
+            color: white !important;
+            border:2px solid #515365 !important; 
+        }
+
+    </style>
+
+@endsection
+
 @section('content')
     <div class="container">
         <div class="row">
@@ -59,8 +93,8 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <button type="button" class="btn btn-primary btn-sm font-weight-bold add_email">
-                                        Add
+                                    <button type="button" class="add_more_email btn btn-primary font-weight-bold add_email">
+                                        Add Email
                                     </button>
                                 </div>
 
@@ -81,12 +115,14 @@
                                         </div>
                                         <div class="col-md-6">
                                             <button type="button" data-id="{{ $email->id }}"
-                                                    class="remove_email btn btn-secondary btn-sm font-weight-bold">
+                                                    class="remove_email btn  font-weight-bold">
                                                 Remove
                                             </button>
+
                                         </div>
 
-                                    </div>
+                                        </div>
+                                        
                                 @endforeach
                             @endif
 

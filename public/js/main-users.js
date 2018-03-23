@@ -1884,7 +1884,7 @@ $(document).ready(function () {
             '                                <div class="col-md-6">\n' +
             '                                    <div class="form-group label-floating hello">\n' +
             '                                        <label class="control-label">Year Of Admission*</label>\n' +
-            '                                        <input class="form-control year_of_admission" placeholder="" value="" name="year_of_admission[]" type="text" id="year_of_admission"><p class="errors" style="color: red;display: none;"></p>\n' +
+            '                                        <input class="form-control year_of_admission" placeholder="" value="" name="year_of_admission[]" type="text" id="year_of_admission2"><p class="errors" style="color: red;display: none;"></p>\n' +
             '\n' +
             '                                    </div>\n' +
             '                                </div>\n' +
@@ -1893,7 +1893,7 @@ $(document).ready(function () {
             '                                <div class="col-md-6">\n' +
             '                                    <div class="form-group label-floating hello">\n' +
             '                                        <label class="control-label">Year Of Graduation*</label>\n' +
-            '                                        <input class="form-control year_of_graduation" placeholder="" value="" name="year_of_graduation[]" id="year_of_graduation" type="text"><p class="errors" style="color: red;display: none;"></p>\n' +
+            '                                        <input class="form-control year_of_graduation" placeholder="" value="" name="year_of_graduation[]" id="year_of_graduation2" type="text"><p class="errors" style="color: red;display: none;"></p>\n' +
             '\n' +
             '                                    </div>\n' +
             '                                </div>\n' +
@@ -1904,9 +1904,17 @@ $(document).ready(function () {
             '                                <hr style="width:100%;">\n' +
             '\n' +
             '                            </div>';
+         
+// edited by john
+        $(".add_edu_button").before(work_education_details_html);
 
-        $(".work_education_details").after(work_education_details_html);
 
+        $('html, body').animate({scrollTop:$(document).height()}, 1000);
+
+        $('#year_of_admission2, #year_of_graduation2').datetimepicker({
+            format: 'MMMM, YY',
+        });
+//end of edit
         $(".remove_work_education_details").click(function () {
             $(this).parents(".work_education_details_remove_div").remove();
 

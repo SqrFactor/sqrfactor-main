@@ -26,12 +26,12 @@
                     <div class="col-md-12">
 
                         <div class="form-group label-floating">
-                            <label class="control-label">Enter otp </label>
+                            <label class="control-label">Enter OTP </label>
                             <input type="text" name="otp" class="form-control">
                             <p class="errors_otp  " style="color: red;"></p>
 
 
-                            <p class=" pull-right">Otp <a href="javascript:void(0)" class=" resent_otp resend_color">Resend</a>
+                            <p class=" pull-right">OTP <a href="javascript:void(0)" class=" resent_otp resend_color">Resend</a>
                             </p>
                         </div>
                     </div>

@@ -6,6 +6,7 @@
     @include('users.partials.head')
 
     @yield('styles')
+
 </head>
 <body class="app-page" data-base="{{URL::to("/")}}">
 

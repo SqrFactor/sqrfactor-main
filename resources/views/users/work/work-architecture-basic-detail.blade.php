@@ -3,7 +3,32 @@
 @section('title') Basic Details | SqrFactor @endsection
 @section('content_description')An online platform for architects, interior designers, teachers and students to showcase their skills, apply for jobs/internships, participate in architecture competitions,follow experts and stay updated!@endsection
 
+
+@section('styles')
+
+    <style>
+        
+        .add_more_email{
+            width:100%; 
+            height: 70%; 
+            background-color: white; 
+            border:2px solid #515365; 
+            color:#515365
+        }
+        .add_more_email:hover
+        {
+            background-color: #515365 !important;
+            color: white !important;
+            border:2px solid #515365 !important;
+        }
+
+    </style>
+
+@endsection
+
 @section('content')
+
+
 
 <div class="container">
     <div class="row">
@@ -74,7 +99,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <button type="button" class="add_more_email btn btn-primary btn-sm font-weight-bold">Add</button>
+                                <button type="button" class="add_more_email btn btn-primary  font-weight-bold" >Add Email</button>
                             </div>
 
                         </div>
@@ -92,7 +117,8 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <button type="button" data-id="{{ $email->id }}" class="remove_email btn btn-secondary btn-sm font-weight-bold">Remove</button>
+                                        <button type="button" data-id="{{ $email->id }}" class="remove_email btn btn-secondary font-weight-bold">Remove</button>
+                                        
                                     </div>
 
                                 </div>

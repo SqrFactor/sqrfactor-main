@@ -70,7 +70,7 @@
                     <div class="ui-block-title">
                         <h6 class="title">Education Details  </h6>
                         @if(Auth::user()->is_skip == "n")
-                            <a class="btn btn-primary pull-right skip-btn" style="color:white;" data-path="{{ Request::path() }}"  >Skip</a>
+                            <a class="btn btn-primary pull-right skip-btn font-weight-bold" style="cursor: pointer;color:white;" data-path="{{ Request::path() }}">Skip</a>
                         @endif
                     </div>
                     <div class="ui-block-content">
@@ -190,12 +190,13 @@
 
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
-                                        <button type="button" class="pull-right add_work_education_details btn btn-primary btn-sm font-weight-bold">Add</button>
-                                    </div>
+                                
 
                                     <hr style="width:100%;">
 
+                                </div>
+                                <div class="col-md-12 add_edu_button" style="text-align: center; ">
+                                        <button type="button" style="width: 10%" class=" add_work_education_details btn btn-primary btn-sm font-weight-bold">Add</button>
                                 </div>
 
                             @endif
@@ -221,22 +222,16 @@
 @section('scripts')
 
 
-    {{--<script>
+    <script>
+
 
 
       $('#year_of_admission').datetimepicker({
-            format: 'YYYY',
-
-
-        })
-        $('#year_of_graduation').datetimepicker({
-            format: 'YYYY',
-
-
-        })
+            format: 'MMMM, YY',
+        });
 
     </script>
---}}
+
 
 @endsection
 
