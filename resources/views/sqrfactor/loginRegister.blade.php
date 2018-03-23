@@ -6,14 +6,15 @@
     <meta name="description" content="An online platform for architects, interior designers, teachers and students to showcase their skills, apply for jobs/internships, participate in architecture competitions,follow experts and stay updated!">
     <meta name="keywords" content="sqrfactor,Social network,architects,interior designers">
 
+<style>
+    #optionsCheckboxes{
 
-<style type="text/css">
-    
-    .login-content{
-        margin-top: 30% ;
-    }
+    border-color: #A8ACC0;
+
+}
 
 </style>
+
     @include('sqrfactor.partials.head')
 </head>
 <body class="login-page" data-base="{{URL::to("/")}}">
