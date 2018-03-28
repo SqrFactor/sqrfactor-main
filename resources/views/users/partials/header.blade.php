@@ -39,7 +39,7 @@
         <div class="control-block">
             @if(Auth::check())
             <!-- more has-items  -->
-                <div class="control-icon launching_soon">
+                <div class="control-icon">
                     <i class="fa fa-envelope-o"></i>
                     <div class="label-avatar bg-primary" id="chat-alert" style="display: none;">0</div>
                     <div class="more-dropdown more-with-triangle header-notification-dropdown">
