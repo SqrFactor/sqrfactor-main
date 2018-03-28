@@ -12,28 +12,21 @@
     @endif
 @endsection
 @section('styles')
-     <!-- fonts -->
+<!-- fonts -->
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
-
 <!-- Bootstrap CSS -->
 <link href="{{ asset('css/messages/app-bootstrap.css') }}" rel="stylesheet">
-
 <!-- Font Awesome -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
 <!-- Vendor CSS -->
-
-
 <!-- CSS -->
-
-
 <!-- Main css -->
 <link href="{{ asset('css/messages/app1.css') }}" rel="stylesheet">
 <link href="{{ asset('css/messages/messages.css') }}" rel="stylesheet">
 <!-- custom scroll -->
 <link href="{{ asset('css/messages/jquery.mCustomScrollbar.min.css') }}" rel="stylesheet">
-
 @endsection
+
 @section('content')  
     <div class="messages-container">
     <div class="ui-block mb-0">
@@ -332,7 +325,7 @@
 
                             <li>
                                 <div class="media">
-                                    <img class="d-flex author-thumb" src="../assets/images/avatar-4.jpg" alt="author">
+                                    <img class="d-flex author-thumb" src="{{asset('assets/images/avatar-4.jpg')}}" alt="author">
                                     <div class="media-body">
                                         <div class="notification-event">
                                             <div class="clearfix">
@@ -353,7 +346,7 @@
 
                             <li>
                                 <div class="media">
-                                    <img class="d-flex author-thumb" src="../assets/images/avatar-3.jpg" alt="author">
+                                    <img class="d-flex author-thumb" src="{{asset('assets/images/avatar-3.jpg')}}" alt="author">
                                     <div class="media-body">
                                         <div class="notification-event">
                                             <div class="clearfix">

@@ -229,4 +229,16 @@ class User extends Authenticatable
     public function portfolioPost(){
         return $this->belongsToMany(UsersPost::class,"portfolio");
     }
+
+    public function friendsOfMine(){
+        return $this->belongsToMany('App\User','chat_friends','user_from','user_to');
+    }
+
+    public function friendOf(){
+        return $this->belongsToMany('App\User','chat_friends','user_to','user_from');
+    }
+
+    public function friends(){
+        return $this->friendsOfMine->merge($this->friendOf);
+    }
 }
