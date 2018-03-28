@@ -14,3 +14,12 @@
 Broadcast::channel('App.User.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
 });
+
+Broadcast::channel('Chat.{user_from}.{user_to}', function ($user, $user_from,$friend_to) {
+    return true;
+});
+
+Broadcast::channel('Online', function ($user) {
+    return $user;
+});
+

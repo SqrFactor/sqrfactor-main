@@ -184,7 +184,7 @@ return [
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
+        App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
@@ -246,6 +246,7 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'HTMLMin' => HTMLMin\HTMLMin\Facades\HTMLMin::class,
         'Share' => Chencha\Share\ShareFacade::class, 
+        'Pusher' => Pusher\Pusher::class,
 
     ],
 

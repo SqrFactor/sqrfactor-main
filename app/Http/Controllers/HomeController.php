@@ -7,6 +7,7 @@ use App\Like;
 use App\UsersPostShare;
 use Illuminate\Http\Request;
 use Auth;
+use App\ChatFriend;
 
 
 class HomeController extends Controller
@@ -59,9 +60,10 @@ class HomeController extends Controller
 
 //  //sachin chat
     public function getallMSG(){
-        return view('users.all-messanger');
+        $friends = Auth::user()->friends();
+        // return $friends;
+        return view('users.all-messanger',compact('friends'));
     }
-    //sachin chat
 
     public function sendMessage(User $user){
         return view('users.message')->with('user',$user);
