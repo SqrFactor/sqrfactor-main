@@ -54,159 +54,23 @@
                 <div class="messages-list mCustomScrollbar" data-mcs-theme="dark">
                     <!-- message list -->
                     <ul class="notification-list chat-message chat-message-list">
-                        <li>
-                            <div class="author-thumb">
-                                <img src="{{asset('assets/images/avatar-1.jpg')}}" alt="author">
-                            </div>
-                            <div class="notification-event">
-                                <a href="#" class="h6 notification-friend mb-1">Nitik Ratnakar</a>
-                                <span class="chat-message-item">Hi James! It’s Diana, I just wanted to let you know that we have to </span>
-                                <span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">4 hours ago</time></span>
-                            </div>
-                            <span class="notification-icon">
-                                <svg class="olymp-chat---messages-icon"><use xlink:href="{{asset('assets/icons/icons.svg#olymp-chat---messages-icon')}}"></use></svg>
-                            </span>
+                        @foreach($friends as $friend)
+                            <li>
+                                <div class="author-thumb">
+                                    <img src="{{asset('assets/images/avatar-1.jpg')}}" alt="author">
+                                </div>
+                                <div class="notification-event">
+                                    <a href="#" class="h6 notification-friend mb-1">{{$friend->first_name}}&nbsp;{{$friend->last_name}}</a>
+                                </div>
+                                <span class="notification-icon">
+                                    <svg class="olymp-chat---messages-icon" style="fill:green"><use xlink:href="{{asset('assets/icons/icons.svg#olymp-chat---messages-icon')}}"></use></svg>
+                                </span>
 
-                            <div class="more">
-                                <svg class="olymp-three-dots-icon"><use xlink:href="{{asset('assets/icons/icons.svg#olymp-three-dots-icon')}}"></use></svg>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="author-thumb">
-                                <img src="{{asset('assets/images/avatar-2.jpg')}}" alt="author">
-                            </div>
-                            <div class="notification-event">
-                                <a href="#" class="h6 notification-friend mb-1">Angad Gill</a>
-                                <span class="chat-message-item">Great, I’ll see you tomorrow!</span>
-                                <span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">7 hours ago</time></span>
-                            </div>
-                            <span class="notification-icon">
-                                <svg class="olymp-chat---messages-icon"><use xlink:href="{{asset('assets/icons/icons.svg#olymp-chat---messages-icon')}}"></use></svg>
-                            </span>
-
-                            <div class="more">
-                                <svg class="olymp-three-dots-icon"><use xlink:href="{{asset('assets/icons/icons.svg#olymp-three-dots-icon')}}"></use></svg>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="author-thumb">
-                                <img src="{{asset('assets/images/avatar-3.jpg')}}" alt="author">
-                            </div>
-                            <div class="notification-event">
-                                <a href="#" class="h6 notification-friend mb-1">Chetan Chouhan</a>
-                                <span class="chat-message-item">Pick up my call</span>
-                                <span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">7 hours ago</time></span>
-                            </div>
-                            <span class="notification-icon">
-                                <svg class="olymp-chat---messages-icon"><use xlink:href="{{asset('assets/icons/icons.svg#olymp-chat---messages-icon')}}"></use></svg>
-                            </span>
-
-                            <div class="more">
-                                <svg class="olymp-three-dots-icon"><use xlink:href="{{asset('assets/icons/icons.svg#olymp-three-dots-icon')}}"></use></svg>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="author-thumb">
-                                <img src="{{asset('assets/images/avatar-4.jpg')}}" alt="author">
-                            </div>
-                            <div class="notification-event">
-                                <a href="#" class="h6 notification-friend mb-1">Rakesh Bisht</a>
-                                <span class="chat-message-item">Great, I’ll see you tomorrow!</span>
-                                <span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">7 hours ago</time></span>
-                            </div>
-                            <span class="notification-icon">
-                                <svg class="olymp-chat---messages-icon"><use xlink:href="{{asset('assets/icons/icons.svg#olymp-chat---messages-icon')}}"></use></svg>
-                            </span>
-
-                            <div class="more">
-                                <svg class="olymp-three-dots-icon"><use xlink:href="{{asset('assets/icons/icons.svg#olymp-three-dots-icon')}}"></use></svg>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="author-thumb">
-                                <img src="{{asset('assets/images/avatar-1.jpg')}}" alt="author">
-                            </div>
-                            <div class="notification-event">
-                                <a href="#" class="h6 notification-friend mb-1">Nitik Ratnakar</a>
-                                <span class="chat-message-item">Hi James! It’s Diana, I just wanted to let you know that we have to </span>
-                                <span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">4 hours ago</time></span>
-                            </div>
-                            <span class="notification-icon">
-                                <svg class="olymp-chat---messages-icon"><use xlink:href="{{asset('assets/icons/icons.svg#olymp-chat---messages-icon')}}"></use></svg>
-                            </span>
-
-                            <div class="more">
-                                <svg class="olymp-three-dots-icon"><use xlink:href="{{asset('assets/icons/icons.svg#olymp-three-dots-icon')}}"></use></svg>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="author-thumb">
-                                <img src="{{asset('assets/images/avatar-2.jpg')}}" alt="author">
-                            </div>
-                            <div class="notification-event">
-                                <a href="#" class="h6 notification-friend mb-1">Angad Gill</a>
-                                <span class="chat-message-item">Great, I’ll see you tomorrow!</span>
-                                <span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">7 hours ago</time></span>
-                            </div>
-                            <span class="notification-icon">
-                                <svg class="olymp-chat---messages-icon"><use xlink:href="{{asset('assets/icons/icons.svg#olymp-chat---messages-icon')}}"></use></svg>
-                            </span>
-
-                            <div class="more">
-                                <svg class="olymp-three-dots-icon"><use xlink:href="{{asset('assets/icons/icons.svg#olymp-three-dots-icon')}}"></use></svg>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="author-thumb">
-                                <img src="{{asset('assets/images/avatar-4.jpg')}}" alt="author">
-                            </div>
-                            <div class="notification-event">
-                                <a href="#" class="h6 notification-friend mb-1">Rakesh Bisht</a>
-                                <span class="chat-message-item">Great, I’ll see you tomorrow!</span>
-                                <span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">7 hours ago</time></span>
-                            </div>
-                            <span class="notification-icon">
-                                <svg class="olymp-chat---messages-icon"><use xlink:href="{{asset('assets/icons/icons.svg#olymp-chat---messages-icon')}}"></use></svg>
-                            </span>
-
-                            <div class="more">
-                                <svg class="olymp-three-dots-icon"><use xlink:href="{{asset('assets/icons/icons.svg#olymp-three-dots-icon')}}"></use></svg>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="author-thumb">
-                                <img src="{{asset('assets/images/avatar-1.jpg')}}" alt="author">
-                            </div>
-                            <div class="notification-event">
-                                <a href="#" class="h6 notification-friend mb-1">Nitik Ratnakar</a>
-                                <span class="chat-message-item">Hi James! It’s Diana, I just wanted to let you know that we have to </span>
-                                <span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">4 hours ago</time></span>
-                            </div>
-                            <span class="notification-icon">
-                                <svg class="olymp-chat---messages-icon"><use xlink:href="{{asset('assets/icons/icons.svg#olymp-chat---messages-icon')}}"></use></svg>
-                            </span>
-
-                            <div class="more">
-                                <svg class="olymp-three-dots-icon"><use xlink:href="{{asset('assets/icons/icons.svg#olymp-three-dots-icon')}}"></use></svg>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="author-thumb">
-                                <img src="{{asset('assets/images/avatar-2.jpg')}}" alt="author">
-                            </div>
-                            <div class="notification-event">
-                                <a href="#" class="h6 notification-friend mb-1">Angad Gill</a>
-                                <span class="chat-message-item">Great, I’ll see you tomorrow!</span>
-                                <span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">7 hours ago</time></span>
-                            </div>
-                            <span class="notification-icon">
-                                <svg class="olymp-chat---messages-icon"><use xlink:href="{{asset('assets/icons/icons.svg#olymp-chat---messages-icon')}}"></use></svg>
-                            </span>
-
-                            <div class="more">
-                                <svg class="olymp-three-dots-icon"><use xlink:href="{{asset('assets/icons/icons.svg#olymp-three-dots-icon')}}"></use></svg>
-                            </div>
-                        </li>
+                                <div class="more">
+                                    <svg class="olymp-three-dots-icon"><use xlink:href="{{asset('assets/icons/icons.svg#olymp-three-dots-icon')}}"></use></svg>
+                                </div>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
                 <!-- end message list -->
@@ -239,135 +103,13 @@
                                     </div>
                                 </div>
                             </li>
-                            <li>
-                                <div class="media">
-                                    <img class="d-flex author-thumb" src="{{asset('assets/images/avatar-2.jpg')}}" alt="author">
-                                    <div class="media-body">
-                                        <div class="notification-event">
-                                            <div class="clearfix">
-                                                <a href="#" class="h6 notification-friend">Nitik Ratnakar</a>
-                                                <span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">Yesterday at 8:30pm</time></span>
-                                            </div>
-                                            <span class="chat-message-item">
-                                                I’m good Bhai, You say? <br>
-                                                Haan let’s meet. <br>
-                                                Check out my new work 
-
-                                                <div class="added-photos">
-                                                    <img src="{{asset('assets/images/news.jpg')}}" alt="photo">
-                                                    <img src="{{asset('assets/images/post-image-1.jpg')}}" alt="photo">
-                                                    <span class="photos-name">photo-1.jpg; photo-2.jpg</span>
-                                                </div>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="media">
-                                    <img class="d-flex author-thumb" src="{{asset('assets/images/avatar-3.jpg')}}" alt="author">
-                                    <div class="media-body">
-                                        <div class="notification-event">
-                                            <div class="clearfix">
-                                                <a href="#" class="h6 notification-friend">Suvrat Jhavar</a>
-                                                <span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">Yesterday at 9:56pm</time></span>
-                                            </div>
-                                            <span class="chat-message-item">
-                                                Nice design, architecture of building looks awesome. <br>
-                                                Are we meeting on weekend ?
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <!--  -->
-
-                            <li>
-                                <div class="media">
-                                    <img class="d-flex author-thumb" src="{{asset('assets/images/avatar-4.jpg')}}" alt="author">
-                                    <div class="media-body">
-                                        <div class="notification-event">
-                                            <div class="clearfix">
-                                                <a href="#" class="h6 notification-friend">Nitik Ratnakar</a>
-                                                <span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">Yesterday at 10:30pm</time></span>
-                                            </div>
-                                            <span class="chat-message-item">
-                                                Yes we are meeting. <br>
-                                                Do you have some plan for weekend ?
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <!--  -->
-
-                            <li>
-                                <div class="media">
-                                    <img class="d-flex author-thumb" src="{{asset('assets/images/avatar-3.jpg')}}" alt="author">
-                                    <div class="media-body">
-                                        <div class="notification-event">
-                                            <div class="clearfix">
-                                                <a href="#" class="h6 notification-friend">Suvrat Jhavar</a>
-                                                <span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">Yesterday at 10:56pm</time></span>
-                                            </div>
-                                            <span class="chat-message-item">
-                                                Yea, Need to discus a new project with you. <br>
-                                                After that will have dinner together. 
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <!--  -->
-
-                            <li>
-                                <div class="media">
-                                    <img class="d-flex author-thumb" src="{{asset('assets/images/avatar-4.jpg')}}" alt="author">
-                                    <div class="media-body">
-                                        <div class="notification-event">
-                                            <div class="clearfix">
-                                                <a href="#" class="h6 notification-friend">Nitik Ratnakar</a>
-                                                <span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">Yesterday at 10:59pm</time></span>
-                                            </div>
-                                            <span class="chat-message-item">
-                                                cool !
-                                                I will leave after 7 PM
-                                                and meet you at city center at Tinku’s shop :)
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <!--  -->
-
-                            <li>
-                                <div class="media">
-                                    <img class="d-flex author-thumb" src="{{asset('assets/images/avatar-3.jpg')}}" alt="author">
-                                    <div class="media-body">
-                                        <div class="notification-event">
-                                            <div class="clearfix">
-                                                <a href="#" class="h6 notification-friend">Suvrat Jhavar</a>
-                                                <span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">Yesterday at 11:05pm</time></span>
-                                            </div>
-                                            <span class="chat-message-item">
-                                                I will be there. <br>
-                                                have a good night :)
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
                         </ul>
                     </div>
                     <form class="messages-form clearfix">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Write your reply here...">
                         </div>
-                        <i class="fa fa-send"></i>
+                        <i class="fa fa-send fa-primary" ></i>
                     </form>
                 </div>
                 <!-- end chat field -->

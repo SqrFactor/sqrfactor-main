@@ -61,8 +61,14 @@ class HomeController extends Controller
 //  //sachin chat
     public function getallMSG(){
         $friends = Auth::user()->friends();
-        // return $friends;
+         // return $friends;
         return view('users.all-messanger',compact('friends'));
+    }
+
+    public function showAllmsg($id){
+        $friend_chat = User::find(106);
+        // return $friend_chat;
+        return view('users.all-messanger')->with('friend_chat',$friend_chat);
     }
 
     public function sendMessage(User $user){
