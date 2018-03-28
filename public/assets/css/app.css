@@ -8979,6 +8979,7 @@ a.link-inverse:hover, a.link-inverse:focus {
   border-right: solid 1px #e6ecf5;
   color: #515365;
   min-width: 320px;
+  height: 85px;
 }
 @media (max-width: 991px) {
   .header-search-form {
@@ -8988,14 +8989,16 @@ a.link-inverse:hover, a.link-inverse:focus {
 }
 .header-search-form-input {
   position: relative;
-  height: 85px;
+  top: 50%;
+  transform: translateY(-50%);
   padding-right: 57px;
-  border: none;
+  border-width: 0px 0px 1px 0px;
   font-weight: 500;
   font-size: 1.125rem;
   font-family: Roboto, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   outline: none;
-  z-index: 1;
+  z-index: 1; 
+  height: 50%;
 }
 @media (max-width: 991px) {
   .header-search-form-input {
@@ -9004,15 +9007,19 @@ a.link-inverse:hover, a.link-inverse:focus {
 }
 .header-search-form-input::-webkit-input-placeholder {
   color: #515365;
+  opacity: 0.4;
 }
 .header-search-form-input::-moz-placeholder {
   color: #515365;
+  opacity: 0.4;
 }
 .header-search-form-input:-ms-input-placeholder {
   color: #515365;
+  opacity: 0.4;
 }
 .header-search-form-input::placeholder {
   color: #515365;
+  opacity: 0.4;
 }
 .header-search-form-btn {
   position: absolute;
