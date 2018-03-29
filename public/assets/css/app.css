@@ -217,6 +217,9 @@ img {
 .control-icon .more-dropdown .notification-list {
   padding: 0;
 }
+.ui-block-title{
+  cursor: default;
+}
 .control-icon .ui-block-title a {
   display: inline-block;
   float: right;
