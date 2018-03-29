@@ -28,6 +28,8 @@ class PostDetailController extends Controller
             ->with('commentsLimited.likes','commentsLimited.user','likes','sharedUser','user')
             ->first();
 
+            $posts->increment('views');
+
         return view('users.post-detail',[
             'post' => $posts,
             'user_like_posts_array' =>array_flip($user_like_posts_array),
