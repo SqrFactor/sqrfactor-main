@@ -1421,11 +1421,12 @@ $(document).ready(function () {
             '                                </div>\n' +
             '                                <br />\n' +
             '                                <br />\n' +
-            '                                <hr />\n' +
+            '                                <hr style="width:100%;">\n' +
             '                            </div>\n';
 
 
         $(".row.other_detail").after(other_detail_html);
+        $('html, body').animate({scrollTop:$(document).height()}, 1000);
 
         $(".remove_other_detail").on('click', function () {
             $(this).parents(".remove_other_detail_div").remove();
