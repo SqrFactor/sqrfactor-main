@@ -3,6 +3,8 @@
 <head>
     <title>@yield('title')</title>
     <meta name="description" content=" @yield('content_description') ">
+    <meta name="userId" content="{{Auth::check() ? Auth::user()->id: 'null' }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     @include('users.partials.head')
 
     @yield('styles')

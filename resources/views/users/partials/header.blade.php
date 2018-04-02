@@ -1,3 +1,5 @@
+
+
 <header class="header" id="site-header">
     <div class="header-content-wrapper container">
         <!-- logo -->
@@ -18,7 +20,7 @@
                       
                          <li><a href="{{route('jobList')}}">Job/Internship</a></li>
                       
-                        <li><a href="{{route('eventList')}}">Event</a></li>
+                        <li><a href="{{route('eventList')}}">Events</a></li>
                        <!--  @if(Auth::user()->user_type != "work_individual")
                             <li><a href="{{route('competitionAdd')}}">Competition</a></li>
                         @endif -->
@@ -81,7 +83,7 @@
                         @endif
 
                         <div class="more-dropdown more-with-triangle">
-                            <div class="ui-block-title">
+                            <div class="ui-block-title" >
                                 <h6 class="title"> @if(Auth::user()->first_name !== null AND Auth::user()->last_name !== null ){{ ucfirst(Auth::user()->first_name) .' '. ucfirst(Auth::user()->last_name)  }} @elseif(Auth::user()->name !== null){{ucfirst(Auth::user()->name) }} @endif</h6>
                             </div>
                             <ul class="account-settings">
@@ -310,7 +312,7 @@
             <div class="tab-pane fade" id="header-nav-user" role="tabpanel">
                 <div class="ui-block-title">
                     <h6 class="title"><h6
-                                class="title"> @if(Auth::user()->first_name !== null AND Auth::user()->last_name !== null ){{ ucfirst(Auth::user()->first_name) .' '. ucfirst(Auth::user()->last_name)  }} @elseif(Auth::user()->name !== null){{ucfirst(Auth::user()->name) }} @endif</h6>
+                                class="title" > @if(Auth::user()->first_name !== null AND Auth::user()->last_name !== null ){{ ucfirst(Auth::user()->first_name) .' '. ucfirst(Auth::user()->last_name)  }} @elseif(Auth::user()->name !== null){{ucfirst(Auth::user()->name) }} @endif</h6>
                     </h6>
                 </div>
                 <ul class="account-settings">

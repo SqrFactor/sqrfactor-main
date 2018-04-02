@@ -124,15 +124,15 @@
                                     </div>
 
 
-                                    <div class="col-md-12">
-                                        <button type="button" class="pull-right add_other_detail btn btn-primary btn-sm font-weight-bold">Add</button>
-                                    </div>
+                                    
 
                                     <br />
                                     <br />
-                                    <hr />
+                                    <hr style="width:100%;">
                                 </div>
-
+                                     <div class="col-md-12 add_edu_button" style="text-align: center; ">
+                                        <button type="button" style="width: 5em" class=" add_other_detail btn btn-primary btn-sm font-weight-bold">Add</button>
+                                    </div>
 
                             @endif
 

@@ -3,6 +3,18 @@
 @section('title') Employee/Member Details | SqrFactor @endsection
 @section('content_description')An online platform for architects, interior designers, teachers and students to showcase their skills, apply for jobs/internships, participate in architecture competitions,follow experts and stay updated!@endsection
 
+@section('styles')
+
+<style>
+    
+    .skip-btn{
+        height: 50%;
+    }
+
+</style>
+
+@endsection
+
 @section('content')
 
 <div class="container">

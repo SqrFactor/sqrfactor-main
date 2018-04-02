@@ -17,6 +17,8 @@
 
 Route::get('/myallMSG', 'HomeController@getallMSG')->name('myMSG')->middleware('auth:web');
 Route::get('/myallMSG/{id}','HomeController@showAllmsg')->middleware('auth:web')->name('chat');
+Route::post('/myallMSG/getChat/{id}','HomeController@getChat')->middleware('auth');
+Route::post('/myallMSG/sendChat','HomeController@sendChat')->middleware('auth');
 Route::get('/', 'Auth\LoginController@showLoginForm')->name('login')->middleware('guest:web');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register')->middleware('guest:web');
 
