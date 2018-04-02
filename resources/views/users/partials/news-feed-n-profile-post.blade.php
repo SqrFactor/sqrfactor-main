@@ -45,9 +45,12 @@
                     {{ ucfirst($post->short_description) }}
                 </strong></h6>
             @if(!empty($post->banner_image))
-                <div class="image_frame" style="cursor: pointer;">
+                <!-- <div class="image_frame" style="cursor: pointer;">
                     <img src="{{asset($post->banner_image)}}" alt="">
-                </div>
+                </div> -->
+                <div class="image_frame" style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.8)),url({{asset($post->banner_image)}});background-size: 100%;">   
+                    <i class="fa fa-chevron-double-up"></i><h4 class="display-5" style="color: white; width:100%;padding-top: 30%; text-align:center;"><br>Know More</h3>
+                <img src="{{asset('/img/up-img.png')}}"></div>
             @endif
 
         @endif
@@ -69,7 +72,7 @@
             @if(array_key_exists($post->shared_id,$user_like_posts_array))
                 <a href="javascript:void(0)" class="post-add-icon inline-items like_  hk_like_post like_color">
                     <i class="fa fa-caret-up"></i></a>
-                <span class="like uses_like pointer    hk-margin hk_like_post like_color">{{ $post->likes->count() }}
+                <span class="like uses_like pointer hk-margin hk_like_post like_color">{{ $post->likes->count() }}
                     Like</span>
             @else
                 <a href="javascript:void(0)" class="post-add-icon inline-items like_ hk_like_post">

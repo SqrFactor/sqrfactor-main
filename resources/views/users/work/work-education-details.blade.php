@@ -2,6 +2,8 @@
 @section('title')  Education Details | SqrFactor @endsection
 @section('content_description')An online platform for architects, interior designers, teachers and students to showcase their skills, apply for jobs/internships, participate in architecture competitions,follow experts and stay updated!@endsection
 
+
+
 @section('content')
 <!-- feed modal -->
     <div class="modal fade" id="educationAddCollege">
@@ -196,7 +198,7 @@
 
                                 </div>
                                 <div class="col-md-12 add_edu_button" style="text-align: center; ">
-                                        <button type="button" style="width: 10%" class=" add_work_education_details btn btn-primary btn-sm font-weight-bold">Add</button>
+                                        <button type="button" style="width: 5em" class=" add_work_education_details btn btn-primary btn-sm font-weight-bold">Add</button>
                                 </div>
 
                             @endif

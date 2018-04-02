@@ -217,6 +217,9 @@ img {
 .control-icon .more-dropdown .notification-list {
   padding: 0;
 }
+.ui-block-title{
+  cursor: default;
+}
 .control-icon .ui-block-title a {
   display: inline-block;
   float: right;
@@ -8644,6 +8647,7 @@ ol ol li {
   background-repeat: repeat-x;
 }
 
+
 a.link-inverse {
   color: inherit;
 }
@@ -8945,7 +8949,7 @@ a.link-inverse:hover, a.link-inverse:focus {
   position: absolute;
   left: 1rem;
   top: 100%;
-  width: 210px;
+  width: 85%;
   margin: 0;
   padding: 0;
   border: solid 1px #e6ecf5;
@@ -8962,7 +8966,7 @@ a.link-inverse:hover, a.link-inverse:focus {
 }
 .header-nav .submenu li a {
   display: block;
-  padding: 10px 12px;
+  padding: 10px 7px;
 }
 .header-nav .submenu li.active > a, .header-nav .submenu li a:hover {
   color: #fff;
@@ -9251,6 +9255,7 @@ a.link-inverse:hover, a.link-inverse:focus {
 }
 
 @media (max-width: 460px) {
+
   .header-responsive .author-page {
     min-width: 43px;
     border-top: 3px solid transparent;
@@ -9307,11 +9312,31 @@ a.link-inverse:hover, a.link-inverse:focus {
 .header-login {
   margin-bottom: 0;
 }
+ .skip-btn{
+        padding-top: 4% ;
+        padding-bottom:  3% ;
+        
+    }
+@media(max-width:780px){
+
+  .skip-btn{
+        padding-top: 3% ;
+        padding-bottom:  3% ;
+        
+    }
+}
 @media (min-width: 992px) {
   .header-login {
     padding-bottom: 0;
     margin-bottom: -25px;
   }
+  .skip-btn{
+        height: 2.3em !important;
+        text-align: center;
+        padding-top: 2% ;
+        padding-bottom:  2%;
+        
+    }
 }
 
 .landing-content {
