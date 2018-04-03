@@ -116,7 +116,11 @@ class HomeController extends Controller
             'user_like_posts_array' =>array_flip($user_like_posts_array)
         ]);
     }
-
+    
+public function contentGen(){
+    return view('users.contentgen');
+}
 
     
 }
+

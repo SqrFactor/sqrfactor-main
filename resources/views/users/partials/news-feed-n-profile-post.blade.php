@@ -48,9 +48,15 @@
                 <!-- <div class="image_frame" style="cursor: pointer;">
                     <img src="{{asset($post->banner_image)}}" alt="">
                 </div> -->
-                <div class="image_frame" style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.8)),url({{asset($post->banner_image)}});background-size: 100%;">   
-                    <i class="fa fa-chevron-double-up"></i><h4 class="display-5" style="color: white; width:100%;padding-top: 30%; text-align:center;"><br>Know More</h3>
-                <img src="{{asset('/img/up-img.png')}}"></div>
+                <!-- <div class="image_frame" style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 70%,rgba(0, 0, 0, 0.0)),url({{asset($post->banner_image)}});background-size: 100%;">   
+                    </i><div class="display-5" style="color: white; width:100%;padding-top: 35%; text-align:center; cursor: pointer;" id="know_more_banner"><br>KNOW MORE</div></div> -->
+                    <!-- <div class="image_frame" style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 70%,rgba(0, 0, 0, 0.0)),url({{asset($post->banner_image)}});background-size: 100%;">   
+                    <div class="display-5" style="color: white;" id="know_more_banner">KNOW MORE</div></div> -->
+                <div class="image_frame"  style="width:100%; height:230px; overflow: hidden;" >
+                    <img class="imgframe1" src="{{asset($post->banner_image)}}" style="object-fit:cover;">
+                    <div  id="know_more_banner"><span class="knw"><br>KNOW MORE</span>
+                    </div>
+                </div>
             @endif
 
         @endif

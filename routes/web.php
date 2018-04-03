@@ -448,3 +448,9 @@ Route::group(['prefix' => 'message'],function(){
     Route::post('create','Message\Message@channelCreate')->name('createChannel')->middleware('auth:web');
 });
 
+// Route to content generation page
+
+Route::get('/generatecontent', [
+        'uses' => 'HomeController@contentGen',
+        'as' => 'generate-content',
+    ]);
