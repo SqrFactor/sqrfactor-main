@@ -165,4 +165,60 @@ class SearchController extends Controller
         }
     }
 
+    public function searchResults(Request $request){
+       $query = explode(' ',request('query'));
+
+        $search = request('query');
+        
+        if(!empty($request->query)){
+
+          
+            $results = User::where([
+            ['active','=','1'],
+            ['user_name','!=',NULL],
+            ['deleted_at','=',NULL],
+            ['first_name','like','%'. request('query') .'%']
+            ])->orWhere([
+                ['active','=','1'],
+                ['user_name','!=',NULL],
+                ['deleted_at','=',NULL],
+                ['last_name','like','%' . request('query') . '%']
+            ])->orWhere([
+                ['active','=','1'],
+                ['user_name','!=',NULL],
+                ['deleted_at','=',NULL],
+                ['name','like','%' . request('query') . '%']
+            ])->orWhere([
+                ['active','=','1'],
+                ['user_name','!=',NULL],
+                ['deleted_at','=',NULL],
+                ['user_name','like','%' . request('query') . '%']
+            ])->orWhere([
+                ['active','=','1'],
+                ['user_name','!=',NULL],
+                ['deleted_at','=',NULL],
+                ['email','like','%' . request('query') . '%']
+            ]);
+            if(isset($query[1])){
+              $results =  $results->orWhere([
+                ['active','=','1'],
+                ['user_name','!=',NULL],
+                ['deleted_at','=',NULL],
+                ['first_name','like','%' . $query[0] . '%'],
+                ['last_name','like','%' . $query[1] . '%']
+                ])->get();
+            }else{
+                  $results =  $results->get();
+            }
+
+            
+        }else{
+               $results = "Nothing Found!";
+        }
+
+        return view('users.search', compact('results', 'search'));
+       
+        
+    }
+
 }

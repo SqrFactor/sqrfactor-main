@@ -44,6 +44,9 @@ Route::get('activate/resend', 'Auth\ActivationController@resend')->name('auth.ac
 
 Route::get('news-feed', 'User\NewsFeedController@home')->middleware(['auth:web'])->name('home');
 
+Route::get('results', "User\SearchController@searchResults")->name('SearchResults')->middleware("auth:web");
+
+
 Route::get('whats-red', 'User\NewsFeedController@whatsRed')->name('whatsRed')->middleware('auth:web');
 
 Route::get("notification", "User\NotificationController@get")->name('notification')->middleware('auth:web');
@@ -299,6 +302,8 @@ Route::group(['prefix' => 'parse'], function () {
     Route::post("post-image-remove", 'Parse\UserController@postImageRemove')->middleware('auth:web');
 
     Route::post("search", "User\SearchController@searchAjax")->middleware("auth:web");
+    
+
     Route::post("search-msg", "User\SearchController@msg")->middleware("auth:web");
 
     Route::post("portfolio", "Parse\UserController@addToPortfolio")->middleware("auth:web");
@@ -449,4 +454,5 @@ Route::group(['prefix' => 'message'],function(){
     Route::get('{channel}','Message\Message@viewMessage')->name('viewMessage')->middleware('auth:web');
     Route::post('create','Message\Message@channelCreate')->name('createChannel')->middleware('auth:web');
 });
+
 

@@ -1116,7 +1116,7 @@ var chatApp = new Vue({
             });
 
             Echo.private('Chat.' + friendId + '.' + userId).listen('BroadcastChat', function (e) {
-                console.log(e);
+                console.log("msg Sent!");
                 _this.chats.push(e.chat);
             });
         }
@@ -1183,7 +1183,7 @@ window.Pusher = __webpack_require__(37);
 window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a({
   authEndpoint: 'http://localhost:8000/broadcasting/auth',
   broadcaster: 'pusher',
-  key: 'fd5fed7cc734f44a4e9f',
+  key: '0d04ad725a0910710e11',
   cluster: 'ap2'
 });
 
@@ -48823,7 +48823,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         sendChat: function sendChat(e) {
             var _this = this;
 
-            e.preventDefault();
             if (this.chat != '') {
                 var data = {
                     chat: this.chat,
@@ -48831,6 +48830,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     user_id: this.userid
                 };
                 this.chat = '';
+                console.log("msg sent!");
                 axios.post('/myallMSG/sendChat', data).then(function (response) {
                     _this.chats.push(data);
                 });

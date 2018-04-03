@@ -6,12 +6,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Notifications\MyResetPassword;
+use Laravel\Scout\Searchable;
 use App\Portfolio;
 use Auth;
+
 
 class User extends Authenticatable
 {
     use Notifiable, SoftDeletes;
+
+    use Searchable;
 
     /**
      * The attributes that are mass assignable.
@@ -240,5 +244,10 @@ class User extends Authenticatable
 
     public function friends(){
         return $this->friendsOfMine->merge($this->friendOf);
+    }
+
+    public function searchableAs()
+    {
+        return 'users_index';
     }
 }

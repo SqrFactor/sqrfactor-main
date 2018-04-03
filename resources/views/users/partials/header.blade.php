@@ -29,9 +29,9 @@
             </ul>
 
             <!-- search form -->
-            <form class="header-search-form">
-                <input type="text" class="header-search-form-input" placeholder="Search">
-                <button type="button" class="btn header-search-form-btn"><i class="fa fa-search"></i></button>
+            <form class="header-search-form" method="GET" action="{{route('SearchResults')}}">
+                <input type="text" class="header-search-form-input" placeholder="Search" name="query">
+                <button type="submit" class="btn header-search-form-btn"><i class="fa fa-search"></i></button>
                 <ul class="header-search account-settings ajax_search">
                 </ul>
             </form>
@@ -282,9 +282,9 @@
             </div>
             <!-- search -->
             <div class="tab-pane" id="tab_search" role="tabpanel">
-                <form class="header-search-form">
-                    <input type="text" class="header-search-form-input" placeholder="Search">
-                    <button type="button" class="btn header-search-form-btn"><i class="fa fa-search"></i></button>
+                <form class="header-search-form" method="GET" action="{{route('SearchResults')}}">
+                    <input type="text" class="header-search-form-input" placeholder="Search" name="query">
+                    <button type="submit" class="btn header-search-form-btn"><i class="fa fa-search"></i></button>
                     <ul class="header-search account-settings ajax_search mobile">
 
                     </ul>
