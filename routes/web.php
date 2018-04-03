@@ -17,6 +17,8 @@
 
 Route::get('/myallMSG', 'HomeController@getallMSG')->name('myMSG')->middleware('auth:web');
 Route::get('/myallMSG/{id}','HomeController@showAllmsg')->middleware('auth:web')->name('chat');
+Route::post('/myallMSG/getChat/{id}','HomeController@getChat')->middleware('auth');
+Route::post('/myallMSG/sendChat','HomeController@sendChat')->middleware('auth');
 Route::get('/', 'Auth\LoginController@showLoginForm')->name('login')->middleware('guest:web');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register')->middleware('guest:web');
 
@@ -41,6 +43,9 @@ Route::get('activate/resend', 'Auth\ActivationController@resend')->name('auth.ac
 /*ststus post*/
 
 Route::get('news-feed', 'User\NewsFeedController@home')->middleware(['auth:web'])->name('home');
+
+Route::get('results', "User\SearchController@searchResults")->name('SearchResults')->middleware("auth:web");
+
 
 Route::get('whats-red', 'User\NewsFeedController@whatsRed')->name('whatsRed')->middleware('auth:web');
 
@@ -297,6 +302,8 @@ Route::group(['prefix' => 'parse'], function () {
     Route::post("post-image-remove", 'Parse\UserController@postImageRemove')->middleware('auth:web');
 
     Route::post("search", "User\SearchController@searchAjax")->middleware("auth:web");
+    
+
     Route::post("search-msg", "User\SearchController@msg")->middleware("auth:web");
 
     Route::post("portfolio", "Parse\UserController@addToPortfolio")->middleware("auth:web");
@@ -448,9 +455,13 @@ Route::group(['prefix' => 'message'],function(){
     Route::post('create','Message\Message@channelCreate')->name('createChannel')->middleware('auth:web');
 });
 
+<<<<<<< HEAD
 // Route to content generation page
 
 Route::get('/generatecontent', [
         'uses' => 'HomeController@contentGen',
         'as' => 'generate-content',
     ]);
+=======
+
+>>>>>>> 0234f62813d32fa720051ebdf62a9344a31b3dee

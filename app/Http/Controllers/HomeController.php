@@ -8,6 +8,7 @@ use App\UsersPostShare;
 use Illuminate\Http\Request;
 use Auth;
 use App\ChatFriend;
+use App\Chat;
 
 
 class HomeController extends Controller
@@ -61,19 +62,38 @@ class HomeController extends Controller
 //  //sachin chat
     public function getallMSG(){
         $friends = Auth::user()->friends();
-         // return $friends;
-        return view('users.all-messanger',compact('friends'));
+        return view('users.all-messanger')->with('friends',$friends);
     }
 
     public function showAllmsg($id){
-        $friend_chat = User::find(106);
-        // return $friend_chat;
-        return view('users.all-messanger')->with('friend_chat',$friend_chat);
+        $chat_friend = User::find($id);
+        $friends = Auth::user()->friends();
+        return view('users.all-messanger',compact(['chat_friend','friends']));
     }
 
-    public function sendMessage(User $user){
-        return view('users.message')->with('user',$user);
+    public function getChat($id){
+        $chats = Chat::where(function ($query) use ($id){
+            $query ->where('user_from','=',Auth::user()->id)->where('user_to','=',$id);
+        })->orWhere(function ($query) use ($id){
+            $query->where('user_from','=',$id)->where('user_to','=',Auth::user()->id);
+        })->get();        
+        return $chats;
     }
+
+    public function sendChat(Request $request)
+    {
+        Chat::create([
+            'user_from'=>$request->user_id,
+            'user_to'=>$request->friend_id,
+            'conversation_id'=>1,
+            'chat'=>$request->chat
+        ]);
+        return [];
+    }
+
+    // public function sendMessage(User $user){
+    //     return view('users.message')->with('user',$user);
+    // }
 
 
     public function viewProfile(User $user)

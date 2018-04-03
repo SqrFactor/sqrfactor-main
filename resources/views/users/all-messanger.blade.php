@@ -28,7 +28,7 @@
 @endsection
 
 @section('content')  
-    <div class="messages-container">
+    <div class="messages-container" id="chatApp">
     <div class="ui-block mb-0">
         <div class="ui-block-title">
             <h6 class="title">Chat / Messages</h6>
@@ -55,21 +55,23 @@
                     <!-- message list -->
                     <ul class="notification-list chat-message chat-message-list">
                         @foreach($friends as $friend)
-                            <li>
-                                <div class="author-thumb">
-                                    <img src="{{asset('assets/images/avatar-1.jpg')}}" alt="author">
-                                </div>
-                                <div class="notification-event">
-                                    <a href="#" class="h6 notification-friend mb-1">{{$friend->first_name}}&nbsp;{{$friend->last_name}}</a>
-                                </div>
-                                <span class="notification-icon">
-                                    <svg class="olymp-chat---messages-icon" style="fill:green"><use xlink:href="{{asset('assets/icons/icons.svg#olymp-chat---messages-icon')}}"></use></svg>
-                                </span>
+                            <a href="{{url('/myallMSG/'.$friend->id)}}" style="justify-content: space-between;">
+                                <li>
+                                    <div class="author-thumb">
+                                        <img src="{{asset('assets/images/avatar-1.jpg')}}" alt="author">
+                                    </div>
+                                    <div class="notification-event">
+                                        <a href="#" class="h6 notification-friend mb-1">{{$friend->first_name}}&nbsp;{{$friend->last_name}}</a>
+                                    </div>
+                                    <span class="notification-icon">
+                                        <svg class="olymp-chat---messages-icon" style="fill:green"><use xlink:href="{{asset('assets/icons/icons.svg#olymp-chat---messages-icon')}}"></use></svg>
+                                    </span>
 
-                                <div class="more">
-                                    <svg class="olymp-three-dots-icon"><use xlink:href="{{asset('assets/icons/icons.svg#olymp-three-dots-icon')}}"></use></svg>
-                                </div>
-                            </li>
+                                    <div class="more">
+                                        <svg class="olymp-three-dots-icon"><use xlink:href="{{asset('assets/icons/icons.svg#olymp-three-dots-icon')}}"></use></svg>
+                                    </div>
+                                </li>
+                            </a>
                         @endforeach
                     </ul>
                 </div>
@@ -78,39 +80,16 @@
 
             <!-- right column -->
             <div class="messages-col messages-col-right">
+                <meta name="friendId" content="{{$chat_friend->id}}">
                 <!-- chat field -->
                 <div class="chat-field">
                     <div class="ui-block-title">
-                        <h6 class="title">Elaine Dreyfuss</h6>
+                        <h6 class="title">{{$chat_friend->first_name}}&nbsp{{$chat_friend->last_name}}</h6>
                         <a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="../assets/icons/icons.svg#olymp-three-dots-icon"></use></svg></a>
                     </div>
-                    <div class="chat-field-content mCustomScrollbar" data-mcs-theme="dark">
-                        <ul class="notification-list chat-message chat-message-field">
-                            <li>
-                                <div class="media">
-                                    <img class="d-flex author-thumb" src="{{asset('assets/images/avatar-1.jpg')}}" alt="author">
-                                    <div class="media-body">
-                                        <div class="notification-event">
-                                            <div class="clearfix">
-                                                <a href="#" class="h6 notification-friend">Elaine Dreyfuss</a>
-                                                <span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">Yesterday at 8:10pm</time></span>
-                                            </div>
-                                            <span class="chat-message-item">
-                                                Hello Bhai! How’re you? :D <br>
-                                                Let’s meet up next weekend?
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                    <div class="chat-field-content mCustomScrollbar" data-mcs-theme="dark" id="showAllMsg">
+                        <chat v-bind:chats="chats" v-bind:userid="{{Auth::user()->id}}" v-bind:friendid="{{$chat_friend->id}}"></chat>
                     </div>
-                    <form class="messages-form clearfix">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Write your reply here...">
-                        </div>
-                        <i class="fa fa-send fa-primary" ></i>
-                    </form>
                 </div>
                 <!-- end chat field -->
             </div>
@@ -120,10 +99,11 @@
     </div>
 </div>
 
-   <!--  @include('users.partials.post-detail-view-model') -->
+<!--  @include('users.partials.post-detail-view-model') -->
 @endsection
  
 @section('scripts')
+    <script src="{{asset('js/app.js')}}">
     <script type="text/javascript" src="{{asset('assets/js/jquery-2.1.3.min.js')}}"></script>    
     <script src="{{asset('assets/js/chat-realtime-static-all.js')}}"></script>
     <!-- Bootstrap script -->
