@@ -3,6 +3,45 @@
 @section('title') New's Feed | SqrFactor @endsection
 @section('content_description')An online platform for architects, interior designers, teachers and students to showcase their skills, apply for jobs/internships, participate in architecture competitions,follow experts and stay updated!@endsection
 
+@section('styles')
+<style>
+    
+        .image_frame{
+        position: relative;
+
+    }
+    #know_more_banner{
+    position: absolute;
+    bottom: 0;
+    vertical-align: bottom;
+    text-align: center;
+    width: inherit;
+    height: inherit;
+    display: none;
+    color: white;
+    cursor: pointer;
+
+    }
+    .knw{
+        display: none;
+        position:absolute;
+        bottom: -35%;
+        margin: auto;
+        color: white;
+        left: 42%;
+    }
+    .image_frame:hover .knw{
+        display: block;
+    }
+    
+    .image_frame:hover #know_more_banner{
+        display:  block;
+        background:linear-gradient(to bottom, rgba(0, 0, 0, 0) 70%,rgba(0, 0, 0, 0.6) 100%);background-size:100%;
+    }
+
+</style>
+@endsection
+
 @section('content')
     <div class="header-spacer hidden-xs-down"></div>
 
@@ -73,3 +112,13 @@
     @include('users.partials.post-detail-view-model')
 @endsection
 
+@section('scripts')
+<script type="text/javascript">
+    // $(".image_frame").hover(function(){
+    // $('.imgframe1').attr('style','background-image:linear-gradient(to bottom, rgba(0, 0, 0, 0) 70%,rgba(0, 0, 0, 0.6) 100%);background-size:100%');
+    // $('#know_more_banner').html('<b>KNOW MORE</b>');
+    // });
+
+</script>
+
+@endsection
