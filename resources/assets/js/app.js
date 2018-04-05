@@ -18,6 +18,8 @@ window.Vue = require('vue');
 Vue.component('chat', require('./components/Chat.vue'));
 Vue.component('chat-composer',require('./components/ChatComposer.vue'));
 
+
+// Chat Application
 const chatApp = new Vue({
     el: '#chatApp',
     data:{
@@ -40,3 +42,4 @@ const chatApp = new Vue({
     	}
     }
 });
+

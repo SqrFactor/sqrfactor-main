@@ -2,28 +2,26 @@
 
 namespace App\Notifications;
 
-use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
-use DB;
+use App\UsersPostShare;
 
-
-class MyResetPassword extends Notification
+class CommentNotifications extends Notification
 {
-    use Queueable ;
+    use Queueable;
+    public $post;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($token)
+    public function __construct(UsersPostShare $post)
     {
-        $this->token = $token;
-
-
+        //
+        $this->post = $post;
     }
 
     /**
@@ -34,7 +32,7 @@ class MyResetPassword extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['database'];
     }
 
     /**
@@ -43,16 +41,9 @@ class MyResetPassword extends Notification
      * @param  mixed  $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
-    public function toMail($notifiable)
+    public function toDatabase($notifiable)
     {
-
-
-        return (new MailMessage)
-                    ->line('Hello there!')
-                    ->line('You have requested to reset your password. Please click the link below to reset your password:')
-
-                    ->action('Reset Password', route('password.reset', $this->token))
-                    ->line('For any other queries, you can mail us at create@sqrfactor.com');
+        return ['post' => $this->post];
     }
 
     /**

@@ -31,5 +31,6 @@
 @include('users.partials.footer-script')
 
 @yield('scripts')
+    <!-- <script src="{{asset('js/notification-app.js')}}"></script> -->
 </body>
 </html>

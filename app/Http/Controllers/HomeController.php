@@ -59,7 +59,7 @@ class HomeController extends Controller
         ]);
     }
 
-//  //sachin chat
+//  // chat
     public function getallMSG(){
         $friends = Auth::user()->friends();
         return view('users.all-messanger')->with('friends',$friends);
