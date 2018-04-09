@@ -32,7 +32,7 @@ class CommentNotifications extends Notification
      */
     public function via($notifiable)
     {
-        return ['database'];
+        return ['database', 'broadcast'];
     }
 
     /**
@@ -42,6 +42,11 @@ class CommentNotifications extends Notification
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
     public function toDatabase($notifiable)
+    {
+        return ['post' => $this->post];
+    }
+
+    public function toBroadcast($notifiable)
     {
         return ['post' => $this->post];
     }

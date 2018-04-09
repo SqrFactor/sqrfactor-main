@@ -50,7 +50,7 @@ Route::get('results', "User\SearchController@searchResults")->name('SearchResult
 Route::get('whats-red', 'User\NewsFeedController@whatsRed')->name('whatsRed')->middleware('auth:web');
 
 Route::get("notification", "User\NotificationController@get")->name('notification')->middleware('auth:web');
-Route::post('/notification/get', 'NotificationController@get')->middleware('auth:web');
+Route::post('/notifications/get', 'NotificationController@get')->middleware('auth:web');
 
 /*post edit*/ 
 Route::get('post/status/edit/{usersPost}', 'User\NewsFeedController@postStatusGet')->name('post.status.edit')->middleware('auth:web');
@@ -273,7 +273,7 @@ Route::group(['prefix' => 'parse'], function () {
 
     Route::post("like-comment", "Parse\UserController@likeComment")->middleware('auth:web');
 
-    Route::post("comments", "Parse\UserController@comment")->middleware('auth:web');
+    Route::any("comments", "Parse\UserController@comment")->middleware('auth:web');
 
 
     Route::post("add-more-email", "Parse\UserController@addEmailMore")->middleware('auth:web');
@@ -374,6 +374,8 @@ Route::group(['prefix' => 'parse'], function () {
 
     Route::post('view-event-user', 'User\EventController@viewEventUser')->middleware('auth:web');
     Route::post('channel','Message\Message@channelCreate')->middleware('auth:web');
+
+    Route::get('notifications/get', 'NotificationController@getNotify')->middleware('auth:web');
 });
 
 Route::get('404', function () {
