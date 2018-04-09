@@ -63,13 +63,7 @@
                                     <div class="notification-event">
                                         <a href="#" class="h6 notification-friend mb-1">{{$friend->first_name}}&nbsp;{{$friend->last_name}}</a>
                                     </div>
-                                    <span class="notification-icon">
-                                        <svg class="olymp-chat---messages-icon" style="fill:green"><use xlink:href="{{asset('assets/icons/icons.svg#olymp-chat---messages-icon')}}"></use></svg>
-                                    </span>
-
-                                    <div class="more">
-                                        <svg class="olymp-three-dots-icon"><use xlink:href="{{asset('assets/icons/icons.svg#olymp-three-dots-icon')}}"></use></svg>
-                                    </div>
+                                    <onlineuser v-bind:friend ="{{$friend}}" v-bind:onlineusers="onlineUsers"></onlineuser>
                                 </li>
                             </a>
                         @endforeach
@@ -85,7 +79,9 @@
                 <div class="chat-field">
                     <div class="ui-block-title">
                         <h6 class="title">{{$chat_friend->first_name}}&nbsp{{$chat_friend->last_name}}</h6>
-                        <a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="../assets/icons/icons.svg#olymp-three-dots-icon"></use></svg></a>
+                        <div class="more">
+                            <svg class="olymp-three-dots-icon"><use xlink:href="{{asset('assets/icons/icons.svg#olymp-three-dots-icon')}}"></use></svg>
+                        </div>
                     </div>
                     <div class="chat-field-content mCustomScrollbar" data-mcs-theme="dark" id="showAllMsg">
                         <chat v-bind:chats="chats" v-bind:userid="{{Auth::user()->id}}" v-bind:friendid="{{$chat_friend->id}}"></chat>

@@ -41,7 +41,7 @@
         <div class="control-block">
             @if(Auth::check())
             <!-- more has-items  -->
-                <div class="control-icon">
+                <div class="control-icon more has-items" id="web_notification_triger1">
                     <i class="fa fa-envelope-o"></i>
                     <div class="label-avatar bg-primary" id="chat-alert" style="display: none;">0</div>
                     <div class="more-dropdown more-with-triangle header-notification-dropdown">
@@ -49,9 +49,32 @@
                             <h6 class="title">New Messages</h6>
                         </div>
                         <div class="mCustomScrollbar" data-mcs-theme="dark">
-                            <!-- notification-list-only-header -->
                             <ul class="notification-list launching_soon">
-
+                                @foreach($chats as $chat)
+                                    @if($chat->chat != null)
+                                        <li>
+                                            <div class="media">
+                                                <img class="author-thumb" src="{{$chat->name[0]->profile}}" alt="author">
+                                                <div class="media-body">
+                                                    <div class="notification-event">
+                                                        <div>
+                                                            <a href="#" class="h6 notification-friend">
+                                                                {{$chat->name[0]->first_name}}&nbsp{{$chat->name[0]->last_name}}
+                                                            </a>
+                                                        </div>
+                                                        <p>{{($chat->chat)->chat}}</p>
+                                                        <span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">
+                                                            {{($chat->chat)->created_at->diffForHumans()}} </time>
+                                                        </span>
+                                                    </div>
+                                                    <div class="more">
+                                                        <svg class="olymp-little-delete"><use xlink:href="../assets/icons/icons.svg#olymp-little-delete"></use></svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    @endif
+                                @endforeach
                             </ul>
                         </div>
                         <a href="/myallMSG" class="view-all bg-primary">View All Messages</a>

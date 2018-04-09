@@ -20,7 +20,7 @@ class BroadcastChat implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Chat $chat)
     {
         $this->chat = $chat;
     }

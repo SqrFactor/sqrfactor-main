@@ -1,9 +1,10 @@
 
 <template>
-    <div class="container">
+    <div class="panel-body">
         <form class="messages-form clearfix">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Write your reply here..." v-on:keyup.enter="sendChat"
+                <input type="text" class="form-control" placeholder="Write your reply here..."
+                 v-on:keyup.enter.prevent="sendChat"
                  v-model="chat">
             </div>
             <i class="fa fa-send fa-primary" type="button" v-on:click="sendChat" ></i>
@@ -28,12 +29,11 @@
                         user_id: this.userid
                     }
                     this.chat = '';
-                    console.log("msg sent!");
                     axios.post('/myallMSG/sendChat',data).then((response)=>{
                         this.chats.push(data)
                     })
                 }
-            }
+            },
         }
     }
 </script>

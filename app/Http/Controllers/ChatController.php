@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Chat;
+use Auth;
+use App\User;
 use Illuminate\Http\Request;
 
 class ChatController extends Controller
@@ -14,7 +16,10 @@ class ChatController extends Controller
      */
     public function index()
     {
-        //
+        protected $layout = 'user.partials.header'
+        $user_id = Auth::user()->id;
+        $chats = Chat::where('user_from','=',$user_id)->take(5)->get();
+        return view('user.header',compact('chats'));        
     }
 
     /**

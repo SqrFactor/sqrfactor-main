@@ -189,6 +189,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
         App\Providers\ComposerServiceProvider::class,
+        App\Providers\ViewComposerServiceProvider::class,
         
     ],
 
@@ -246,7 +247,7 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'HTMLMin' => HTMLMin\HTMLMin\Facades\HTMLMin::class,
         'Share' => Chencha\Share\ShareFacade::class, 
-        // 'Pusher' => Pusher\Pusher::class,
+        'Pusher' => Pusher\Pusher::class,
 
     ],
 
