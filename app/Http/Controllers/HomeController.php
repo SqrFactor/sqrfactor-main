@@ -68,6 +68,7 @@ class HomeController extends Controller
     public function showAllmsg($id){
         $chat_friend = User::find($id);
         $friends = Auth::user()->friends();
+
         return view('users.all-messanger',compact(['chat_friend','friends']));
     }
 
@@ -85,7 +86,7 @@ class HomeController extends Controller
         Chat::create([
             'user_from'=>$request->user_id,
             'user_to'=>$request->friend_id,
-            'conversation_id'=>1,
+            //'conversation_id'=>1,
             'chat'=>$request->chat
         ]);
         return [];

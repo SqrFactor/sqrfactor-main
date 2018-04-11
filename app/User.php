@@ -246,6 +246,10 @@ class User extends Authenticatable
         return $this->friendsOfMine->merge($this->friendOf);
     }
 
+    public function messages() {
+    return $this->hasMany('App\Chat', 'user_to');
+}
+
     public function searchableAs()
     {
         return 'users_index';

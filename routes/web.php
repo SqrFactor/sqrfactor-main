@@ -182,6 +182,10 @@ Route::group(['prefix' => 'parse'], function () {
     Route::post('submit-MSG', 'Parse\SqrFactorController@subMSG')->middleware('auth:web');
     /* /Chat code */
 
+    /* Chat Code New */
+    Route::post('send-message-through-profile', 'ChatFriendController@sendMessage')->middleware('auth:web');
+
+
     Route::post('verify-otp', 'Parse\SqrFactorController@verifyOtp')->middleware('auth:web');
     Route::post('resend-otp', 'Parse\SqrFactorController@resendOtp')->middleware('auth:web');
 
