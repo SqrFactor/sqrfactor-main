@@ -62,7 +62,7 @@
         <div class="ui-block-content ui-block-content-sm">
             <form>
                 <div class="form-group mb-3">
-                    <input class="form-control form-control-lg" id="inviteEmail" placeholder="Invite your friends"
+                    <input class="form-control form-control-lg" id="inviteEmail" placeholder="Enter Friend's Email"
                            type="text">
                     <p class="errors" style="color: red;display: none"></p>
                 </div>

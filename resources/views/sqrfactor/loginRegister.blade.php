@@ -19,7 +19,7 @@
 </head>
 <body class="login-page" data-base="{{URL::to("/")}}">
 <!-- header -->
- @include('sqrfactor.partials.banner-sqr')
+<!-- include a banner -->
 <div class="container">
     <div class="clearfix">
         <div class="header-landing header-login">

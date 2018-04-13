@@ -15,7 +15,7 @@ class User extends Authenticatable
 {
     use Notifiable, SoftDeletes;
 
-    use Searchable;
+    // use Searchable;
 
     /**
      * The attributes that are mass assignable.

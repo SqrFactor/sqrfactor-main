@@ -164,6 +164,7 @@
 }
 .messages-container .messages-form .form-group input {
   padding-right: 35px;
+  width: 90%;
 }
 .messages-container .messages-form > .fa {
   position: absolute;

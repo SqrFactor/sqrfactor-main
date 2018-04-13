@@ -18,6 +18,9 @@
                 time_start.data("DateTimePicker").maxDate(e.date);
             });
         });
+        $(".inside-chat-cont").mCustomScrollbar({
+                
+            });
 
     });
 }(jQuery));

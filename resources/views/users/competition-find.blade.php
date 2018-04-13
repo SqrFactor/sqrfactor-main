@@ -70,11 +70,11 @@
 
                                 Prizes: {{$list->usersCompetitionsAward->where("award_type","1_prize")->first()->award_amount}}
                                 @else
-                                Prizes : Not applicable
+                                Prize`s : Not applicable
                                 @endif
                                     
                                 @else
-                                Prizes : Not applicable
+                                Prizes1 : Not applicable
 
                                  @endif</li>
                                 <li>Type: {{$list->competition_type}}</li>

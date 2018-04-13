@@ -85,7 +85,6 @@ class HomeController extends Controller
         Chat::create([
             'user_from'=>$request->user_id,
             'user_to'=>$request->friend_id,
-            'conversation_id'=>1,
             'chat'=>$request->chat
         ]);
         return [];

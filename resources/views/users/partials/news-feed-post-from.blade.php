@@ -57,10 +57,7 @@
                         <div class="nav-link  inline-items p_22">
                             <div class="more">
 
-                                <svg class="olymp-three-dots-icon">
-                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                                         xlink:href="http://localhost:8000/assets/icons/icons.svg#olymp-three-dots-icon"></use>
-                                </svg>
+                                <svg class="olymp-three-dots-icon"><use xlink:href="{{asset('assets/icons/icons.svg#olymp-three-dots-icon')}}"></use></svg>
                                 <ul class="more-dropdown post_dropdown">
                                   
 

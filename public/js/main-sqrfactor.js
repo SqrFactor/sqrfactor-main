@@ -533,6 +533,13 @@ $(document).ready(function () {
             }
         });
     });
+    //Edited by John 12-4-18
+    $('.email_login,.password_login').keypress(function(e){
+        if(e.which == 13){//Enter key pressed
+            $('.login_user').click();//Trigger search button click event
+        }
+    });
+    // End of "Edited by John 12-4-18"
 
     $("#facebook_login_werning_signup").click(function () {
         swal({

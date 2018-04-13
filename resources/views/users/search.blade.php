@@ -1,5 +1,5 @@
 @extends('layouts.app-news-feed')
-
+@section('title') Search  | SqrFactor @endsection
 @section('content')
     <div class="header-spacer hidden-xs-down"></div>
     <div class="header-spacer-fit hidden-sm-up"></div>
@@ -22,31 +22,55 @@
                                         <!-- $name = $user->name; -->
                                         @if(Auth::id() == $user->id)
                                                        <!-- $route = route('profile'); -->
-                                                       <li><a href="{{route('profile')}}">
+                                                       <li>
+                                                        <div style="width:20%; text-align: center;">
+                                                        <a href="{{route('profile')}}">
                                                         <img src="{{asset($user->profile)}}" style="height:50px; margin-right:15px">
+                                                        </div>
+                                                        <div style="width:80%">
                                                         <span>{{$user->name}} 
-                                                       </span></a></li>
+                                                       </span></a>
+                                                        </div>
+                                                        </li>
                                                 @else
                                                    <!-- $route = route("profileView",$user->user_name); -->
                                                     
-                                                <li><a href="{{route('profileView', $user->user_name)}}">
+                                                <li>
+                                                    <div style="width:20%;text-align: center;">
+                                                    <a href="{{route('profileView', $user->user_name)}}">
                                                     <img src="{{asset($user->profile)}}" style="height:50px; margin-right:15px">
-                                                    <span> {{ $user->name }} </span></a></li>
+                                                    </div>
+                                                    <div style="width:80%">
+                                                    <span> {{ $user->name }} </span></a>
+                                                    </div>
+                                                    </li>
                                                   
                                              @endif
                                          @elseif(!empty($user->first_name))
                                             <!-- $name = $user->first_name $user->last_name; -->
                                             @if(Auth::id() == $user->id)
                                                        <!-- $route = route('profile'); -->
-                                                       <li><a href="{{route('profile')}}">
+                                                       <li>
+                                                        <div style="width:20%;text-align: center;">
+                                                        <a href="{{route('profile')}}">
                                                         <img src="{{asset($user->profile)}}" style="height:50px; margin-right:15px">
-                                                        <span>                                              {{ $user->first_name  }} {{$user->last_name}} </span></a></li>
+                                                        </div>
+                                                        <div style="width:80%">
+                                                        <span>{{ $user->first_name  }} {{$user->last_name}} </span></a>
+                                                        </div>
+                                                        </li>
                                                 @else
                                                    <!-- $route = route("profileView",$user->user_name); -->
                                                     
-                                                <li><a href="{{route('profileView', $user->user_name)}}">
+                                                <li>
+                                                    <div style="width:20%;text-align: center;">
+                                                    <a href="{{route('profileView', $user->user_name)}}">
                                                     <img src="{{asset($user->profile)}}" style="height:50px; margin-right:15px">
-                                                    <span>{{ $user->first_name }} {{$user->last_name}} </span></a></li>
+                                                    </div>
+                                                    <div style="width:80%">
+                                                    <span>{{ $user->first_name }} {{$user->last_name}} </span></a>
+                                                    </div>
+                                                    </li>
                                                   
                                             @endif  
                                      @endif   

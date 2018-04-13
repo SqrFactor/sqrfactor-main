@@ -8,7 +8,7 @@
 
         <div class="ui-block responsive-flex">
             <div class="ui-block-title pt-3 pb-3">
-                <div class="h6 title ">
+                <div class="h6 title">
 
                     @if($user)
                     {{$user->fullName()}} Portfolio <sapn class="count_portfolio">({{ $posts->count() }})</sapn>

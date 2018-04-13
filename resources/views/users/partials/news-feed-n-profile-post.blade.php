@@ -54,7 +54,7 @@
                     <div class="display-5" style="color: white;" id="know_more_banner">KNOW MORE</div></div> -->
                 <div class="image_frame"  style="width:100%; height:230px; overflow: hidden;" >
                     <img class="imgframe1" src="{{asset($post->banner_image)}}" style="object-fit:cover;">
-                    <div  id="know_more_banner"><span class="knw"><br>KNOW MORE</span>
+                    <div  id="know_more_banner"><span class="knw"><br>SEE MORE</span>
                     </div>
                 </div>
             @endif
@@ -78,8 +78,10 @@
             @if(array_key_exists($post->shared_id,$user_like_posts_array))
                 <a href="javascript:void(0)" class="post-add-icon inline-items like_  hk_like_post like_color">
                     <i class="fa fa-caret-up"></i></a>
-                <span class="like uses_like pointer hk-margin hk_like_post like_color">{{ $post->likes->count() }}
+                
+                    <span class="like uses_like pointer hk-margin hk_like_post like_color">{{ $post->likes->count() }}
                     Like</span>
+                
             @else
                 <a href="javascript:void(0)" class="post-add-icon inline-items like_ hk_like_post">
                     <i class="fa fa-caret-up "></i>
@@ -94,11 +96,11 @@
             <span class="comment_count more-comments-post pointer hk-margin">{{ $post->commentsLimited->count() }}
                 Comments</span>
 
-            <a href="javascript:void(0)" {{--onclick='showSweetMessage("Coming soon..","success")'--}}
+            <!-- <a href="javascript:void(0)" {{-- onclick='showSweetMessage("Coming soon..","success")' --}}
             class="post-add-icon inline-items sweetAlertShare user_post_share_">
                 <i class="fa fa-square"></i>
                 <span>Share</span>
-            </a>
+            </a> -->
 
 
             {{--@if(array_key_exists($post->id,$user_like_posts_array))

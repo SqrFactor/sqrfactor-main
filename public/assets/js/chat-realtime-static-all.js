@@ -4,6 +4,7 @@ var uto,uname;
 window.onload = function() {
     finishNotification(document.querySelector('#from').value);
     userMysql(document.querySelector('#from').value);
+    
 }
 
 
@@ -27,6 +28,7 @@ function finishNotification(from){
         }
     });
 }
+
 
 $('body').on('click','.backAllUsers',function () {
     if($(document).width() < 550){
