@@ -245,7 +245,6 @@ class User extends Authenticatable
     public function friends(){
         return $this->friendsOfMine->merge($this->friendOf);
     }
-
     public function searchableAs()
     {
         return 'users_index';

@@ -41,7 +41,10 @@ use Image;
 use Mail;
 use Response;
 use Validator;
-use App\Notifications\CommentNotifications;
+use App\Notifications\CommentNoti_Post;
+use App\Notifications\CommentNoti_DesignSubmission;
+use App\Notifications\LikeNoti_Post;
+use App\Notifications\LikeNoti_DesignSubmission;
 
 
 class UserController extends Controller
@@ -583,6 +586,11 @@ class UserController extends Controller
                     'likeable_type' => $likeable_type,
                 ]);
 
+                //Code Added By Agnim -> User whose Post is liked will be notified | Saved in Notification table in database | Using Notification\LikeNoti_Post
+                $postLike = UsersPostShare::find($request->likeable_id);
+                User::find($postLike->user->id)->notify(new LikeNoti_Post($postLike));
+                //Added on 10th April 2018 | Like Notification Ends here
+
                 $message = [
                     'return' => 'true',
                     'message' => 'Liked Successfully.',
@@ -633,8 +641,11 @@ class UserController extends Controller
 
                 $commentLastInsert = Comment::findOrFail($comment->id);
 
-                $post = UsersPostShare::find($request->commentable_id);
-                User::find($post->user->id)->notify(new CommentNotifications($post));
+                //Code Added By Agnim -> User whose Post has got comments will be notified | Saved in Notification table in database | Using Notification\CommentNoti_Post
+                 $post = UsersPostShare::find($request->commentable_id);
+                User::find($post->user->id)->notify(new CommentNoti_Post($post));                
+                //Added on 10th April 2018 | Comment Notification Ends here
+               
 
                 $message = [
                     'return' => 'true',
@@ -1348,6 +1359,8 @@ class UserController extends Controller
             ->where('likeable_id', $request->post_id)
             ->where("likeable_type", "App\\UserCompetitionDesignSubmition");
 
+     
+
         if ($submissionLike->count() > 0) {
             $usersPOstCount = $submissionLike->with('user')->get();
 
@@ -1442,6 +1455,11 @@ class UserController extends Controller
             $comment = Comment::create($array);
 
             $usersSubmissiondetail = Comment::where('id', $comment->id)->with('user')->first();
+
+            //Code Added By Agnim -> User whose submission has got comment will be notified | Saved in Notification table in database | Using Notification\CommentNoti_DesignSubmission
+            $designSubmissionComment = UserCompetitionDesignSubmition::find($request->commentable_id);
+                User::find($designSubmissionComment->user->id)->notify(new CommentNoti_DesignSubmission($designSubmissionComment));
+            //Added on 10th April 2018 | Comment Notification Ends here
 
 
             if (count($usersSubmissiondetail) > 0) {

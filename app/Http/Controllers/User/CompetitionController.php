@@ -36,6 +36,7 @@ use App\ParticipateUser;
 use App\Comment;
 use Share;
 use Image;
+use App\Notifications\LikeNoti_DesignSubmission;
 
 class CompetitionController extends Controller
 {
@@ -1183,6 +1184,13 @@ class CompetitionController extends Controller
                 $likes->likeable_id = $data['likeable_id'];
                 $likes->created_at = date("Y-m-d h:i:s");
                 $likes->save();
+
+                //Code Added By Agnim -> User whose submission is liked will be notified | Saved in Notification table in database | Using Notification\LikeNoti_DesignSubmission
+                $designSubmissionLike = UserCompetitionDesignSubmition::find($request->like_id);
+                User::find($designSubmissionLike->user->id)->notify(new LikeNoti_DesignSubmission($designSubmissionLike));
+                //Added on 10th April 2018 | Like Notification Ends here
+
+
                 $response['return'] = true;
                 $response['data'] = $likes;
                 $response['count'] = Like::where("likeable_id", $data['likeable_id'])
@@ -1198,6 +1206,8 @@ class CompetitionController extends Controller
             $response['errors_keys'] = $keys;
             return Response()->json($response, 200);
         }
+
+        
 
     }
 
