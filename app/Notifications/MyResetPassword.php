@@ -52,7 +52,7 @@ class MyResetPassword extends Notification
                     ->line('You have requested to reset your password. Please click the link below to reset your password:')
 
                     ->action('Reset Password', route('password.reset', $this->token))
-                    ->line('For any other queries, you can mail us at support@sqrfactor.com');
+                    ->line('For any other queries, you can mail us at create@sqrfactor.com');
     }
 
     /**

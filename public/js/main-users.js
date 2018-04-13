@@ -2213,6 +2213,7 @@ $(document).ready(function () {
                 success: function (data) {
                     if (data != 0) {
                         $('.header-search.account-settings.ajax_search').html(data);
+                        console.log(searchval);
                     } else {
                         $('.header-search.account-settings.ajax_search').html("");
                     }
@@ -2220,7 +2221,8 @@ $(document).ready(function () {
                 error: function (xhr, statusText, errorThrown) {
                     /*  alert(xhr.status);*/
                     if (xhr.status == '401') {
-                        window.location.href = base_url + 'login'; //Will take you to login.
+                        window.location.href = base_url + 'login';
+                         //Will take you to login.
                     } else {
                         swal("Oops!", "Something went wrong", "error");
                     }
@@ -2230,6 +2232,8 @@ $(document).ready(function () {
             $('.header-search.account-settings.ajax_search').html("");
         }
     });
+
+    
 
     $("input[name='first_name']").add("input[name='last_name']").add("input[name='aadhar_id']").add("input[name='pin_code']").add("textarea[name='short_bio']").add("input[name='address']").add("textarea[name='describe_yourself']").add("input[name='facebook_link']").add("input[name='twitter_link']").add("input[name='linkedin_link']").add("input[name='instagram_link']").on('keyup', function () {
 

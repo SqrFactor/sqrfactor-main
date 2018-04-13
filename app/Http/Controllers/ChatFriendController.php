@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ChatFriend;
 use Auth;
+use App\Chat;
 use Illuminate\Http\Request;
 
 
@@ -38,7 +39,15 @@ class ChatFriendController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $friend = new ChatFriend;
+        // $new_chat = new Chat;
+        // $friend->user_from = Auth::user()->id;
+        // $friend->user_to = $request->id;
+        // $new_chat->user_from =  Auth::user()->id;
+        // $new_chat->user_to = $request->id;
+        // $new_chat->chat = $request->chat;
+        // $friend->save();
+        // $new_chat->save();
     }
 
     /**
@@ -70,9 +79,9 @@ class ChatFriendController extends Controller
      * @param  \App\ChatFriend  $chatFriend
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ChatFriend $chatFriend)
+    public function update(Request $request,$id)
     {
-        //
+        
     }
 
     /**
@@ -85,4 +94,32 @@ class ChatFriendController extends Controller
     {
         //
     }
+
+    public function sendMessage(Request $request, $id)
+    {
+        $friend = new ChatFriend;
+        $new_chat = new Chat;
+        $condition = ChatFriend::where(['user_from'=>Auth::user()->id,'user_to'=>$id])
+                                 ->orWhere(['user_from'=>$id,'user_to'=>Auth::user()->id])->get();
+        if(isset($condition) && count($condition)>0){                 
+            $new_chat->user_from =  Auth::user()->id;
+            $new_chat->user_to = $id;
+            $new_chat->chat = $request->chat;
+            $new_chat->save();
+            session()->flash('message','You message has been sent successfully.');
+            return redirect()->back();           
+        }
+        else{ 
+            $friend->user_from = Auth::user()->id;
+            $friend->user_to = $id;            
+            $new_chat->user_from =  Auth::user()->id;
+            $new_chat->user_to = $id;
+            $new_chat->chat = $request->chat;
+            $friend->save();
+            $new_chat->save();
+            session()->flash('message','You message has been sent successfully.');
+            return redirect()->back();
+        }
+    }
+
 }

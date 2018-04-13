@@ -1,50 +1,58 @@
-<style scoped>
-   .chat{
-        width:100%;
-        padding:20px;
-        box-shadow: inset 0 0 20px 0 grey;
-        margin-bottom: 20px;
-        border: 1px solid grey;
-        max-height: 600px;
-        overflow-x: auto;
-    }
-
-    .chat .chat-right ,.chat .chat-left{
-        max-width:200px;
-        box-shadow:0 0 8px 0px grey;
-        padding: 8px;
-        margin-left: 4px;
-    }
-
-    .chat-right{
-        float:right;
-    }
-
-    .chat-left{
-        float:left;
-    }
-
-    .no-message{
-        height:200x;
-        display:flex;
-        align-items:center;
-    }
-</style>
 <template>
-    <div class="panel-body">
-        <div class="chats" v-if="chats.length != 0">
-            <div v-for="chat in chats">
-                <div class="chat-right " v-if="chat.user_from == userid" style="max-width:400px;box-shadow:0 0 8px 0px grey; padding: 8px;margin:10px;  float:right;">
-                    {{chat.chat}}
+    <div>
+        <div class="panel-body" style="height:650px;">
+        <div  style="height:500px;width:99.9%;overflow:scroll;" class="scroll">
+        <div  class="chats" v-if="chats.length != 0"  >
+            <ul class="notification-list chat-message chat-message-field" >
+                <li v-for="chat in chats" >
+                    <div class="chat-right " v-if="chat.user_from == userid" style="width:100%">
+                        <div class="media" style="border-bottom:1px solid #F3F4F8; padding-bottom:10px;">
+                            <img class="d-flex author-thumb" v-if="user.profile.substring(0,1)=='h'" :src="user.profile" alt="author">
+                            <img class="d-flex author-thumb" v-else :src="'http://localhost:8000/'+user.profile" alt="author">
+                            <div class="media-body">
+                                        <div class="notification-event" >
+                                            <div class="clearfix" >
+                                                <a href="#" class="h6 notification-friend">
+                                                    {{user.first_name}}&nbsp{{user.last_name}}
+                                                </a>
+                                                <span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">{{chat.created_at | moment}}</time></span>
+                                            </div>
+                                            <span class="chat-message-item">
+                                                {{chat.chat}}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chat-left" v-else style="width:100%">
+                                <div class="media" style="border-bottom:1px solid #F3F4F8; padding-bottom:10px;">
+                                    <img class="d-flex author-thumb"  v-if="friend.profile.substring(0,1)=='h'"" :src="friend.profile" alt="author">
+                                      <img class="d-flex author-thumb"  v-else :src="'http://localhost:8000/'+friend.profile" alt="author">
+                                    <div class="media-body" style="width:100%">
+                                        <div class="notification-event" >
+                                            <div class="clearfix" >
+                                                <a href="#" class="h6 notification-friend">
+                                                {{friend.first_name}}&nbsp{{friend.last_name}}
+                                                </a>
+                                                <span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">{{chat.created_at | moment}}</time></span>
+                                            </div>
+                                            <span class="chat-message-item">
+                                                {{chat.chat}}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>                
                 </div>
-                <div class="chat-left" v-else style="max-width:400px;box-shadow:0 0 8px 0px grey;
-                padding: 10px;margin: 10px; float:left;">
-                    {{chat.chat}}
-                </div>
-            </div>
-        </div>
-        <div class="no-message" v-else>
-            <p>There is no message!</p>
+                <div class="no-message" v-else>
+                    <br><br>
+                    <center>
+                        <h4>There is no message to display!</h4>
+                    </center>
+                </div> 
+            </div>         
         </div> 
         <chat-composer v-bind:userid="userid" v-bind:chats="chats" v-bind:friendid="friendid"></chat-composer>
     </div>
@@ -52,6 +60,17 @@
 
 <script>
     export default {
-        props: ['chats','userid','friendid'],
-    }
+        props: ['chats','userid','friendid','user','friend'],
+        filters: {
+            moment: function (date) {
+                return moment(date).format('MMMM Do YYYY, h:mm:ss a');
+            }
+        },
+        updated(){
+
+            var container = document.querySelector(".scroll");
+            console.log(container.clientHeight);
+            container.scrollTop = 12000;
+        }
+    }  
 </script>

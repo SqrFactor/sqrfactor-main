@@ -4,9 +4,6 @@
             <i class="fa fa-circle" v-if="checkUser()" style="color:green"></i>
             <i class="fa fa-circle" v-else style="color:red"></i>
         </span>
-        <div class="more">
-            <i class="fa fa-comments"></i>
-        </div>
     </div>
 </template>
 

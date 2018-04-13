@@ -29,9 +29,9 @@
             </ul>
 
             <!-- search form -->
-            <form class="header-search-form">
-                <input type="text" class="header-search-form-input" placeholder="Search">
-                <button type="button" class="btn header-search-form-btn"><i class="fa fa-search"></i></button>
+            <form class="header-search-form" method="GET" action="{{route('SearchResults')}}">
+                <input type="text" class="header-search-form-input" placeholder="Search" name="query">
+                <button type="submit" class="btn header-search-form-btn"><i class="fa fa-search"></i></button>
                 <ul class="header-search account-settings ajax_search">
                 </ul>
             </form>
@@ -54,18 +54,24 @@
                                     @if($chat->chat != null)
                                         <li>
                                             <div class="media">
-                                                <img class="author-thumb" src="{{$chat->name[0]->profile}}" alt="author">
+                                                <a href="{{url('/myallMSG/'.$chat->name[0]->id)}}">
+                                                    <img class="author-thumb" src="{{URL::asset($chat->name[0]->profile)}}" alt="author">
+                                                </a>
                                                 <div class="media-body">
                                                     <div class="notification-event">
                                                         <div>
-                                                            <a href="#" class="h6 notification-friend">
+                                                            <a href="{{url('/myallMSG/'.$chat->name[0]->id)}}" class="h6 notification-friend">
                                                                 {{$chat->name[0]->first_name}}&nbsp{{$chat->name[0]->last_name}}
                                                             </a>
                                                         </div>
-                                                        <p>{{($chat->chat)->chat}}</p>
-                                                        <span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">
-                                                            {{($chat->chat)->created_at->diffForHumans()}} </time>
-                                                        </span>
+                                                        <a href="{{url('/myallMSG/'.$chat->name[0]->id)}}">
+                                                            <p>{{($chat->chat)->chat}}</p>
+                                                            <span class="notification-date">
+                                                                <time class="entry-date updated" datetime="2004-07-24T18:18">                                                               
+                                                                    {{($chat->chat)->created_at->diffForHumans()}}
+                                                                </time>
+                                                            </span>
+                                                        </a>
                                                     </div>
                                                     <div class="more">
                                                         <svg class="olymp-little-delete"><use xlink:href="../assets/icons/icons.svg#olymp-little-delete"></use></svg>
@@ -77,7 +83,7 @@
                                 @endforeach
                             </ul>
                         </div>
-                        <a href="/myallMSG" class="view-all bg-primary">View All Messages</a>
+                            <a href="{{url('/myallMSG/'.$chats{0}->name[0]->id)}}" class="view-all bg-primary">View All Messages</a>
                     </div>
                 </div>
                 <div class="control-icon more has-items" id="web_notification_triger">
@@ -305,9 +311,9 @@
             </div>
             <!-- search -->
             <div class="tab-pane" id="tab_search" role="tabpanel">
-                <form class="header-search-form">
-                    <input type="text" class="header-search-form-input" placeholder="Search">
-                    <button type="button" class="btn header-search-form-btn"><i class="fa fa-search"></i></button>
+                <form class="header-search-form" method="GET" action="{{route('SearchResults')}}">
+                    <input type="text" class="header-search-form-input" placeholder="Search" name="query">
+                    <button type="submit" class="btn header-search-form-btn"><i class="fa fa-search"></i></button>
                     <ul class="header-search account-settings ajax_search mobile">
 
                     </ul>

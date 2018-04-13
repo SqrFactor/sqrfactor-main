@@ -16,7 +16,7 @@ Broadcast::channel('App.User.{id}', function ($user, $id) {
 });
 
 Broadcast::channel('Chat.{user_from}.{user_to}', function ($user, $user_from,$user_to) {
-    return true;
+    return $user->id == $user_to;
 });
 
 Broadcast::channel('Online', function ($user) {

@@ -7,7 +7,7 @@
                  v-on:keyup.enter.prevent="sendChat"
                  v-model="chat">
             </div>
-            <i class="fa fa-send fa-primary" type="button" v-on:click="sendChat" ></i>
+            <i class="fa fa-send fa-primary"  v-on:click="sendChat" ></i>
         </form>
     </div>
 </template>
@@ -31,7 +31,7 @@
                     this.chat = '';
                     axios.post('/myallMSG/sendChat',data).then((response)=>{
                         this.chats.push(data)
-                    })
+                    });
                 }
             },
         }

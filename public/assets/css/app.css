@@ -8983,7 +8983,7 @@ a.link-inverse:hover, a.link-inverse:focus {
   border-right: solid 1px #e6ecf5;
   color: #515365;
   min-width: 320px;
-  height: 85px;
+  height: 100%;
 }
 @media (max-width: 991px) {
   .header-search-form {
@@ -9079,6 +9079,18 @@ a.link-inverse:hover, a.link-inverse:focus {
   .header-spacer {
     height: 110px;
   }
+  .header-search-form{
+    top:  1%;
+    transform: translateY(50px);
+    height: 0%;
+  }
+  .header-search-form-btn{
+    position:static;
+    padding-left: 90%;
+    transform: translateY(-65px);
+    height: 100%;   
+  }
+
 }
 
 .header-spacer-fit {

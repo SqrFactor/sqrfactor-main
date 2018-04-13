@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Notifications\MyResetPassword;
 use App\Portfolio;
 use Auth;
+use Illuminate\Support\Facades\Storage;
+
 
 class User extends Authenticatable
 {
@@ -56,6 +58,8 @@ class User extends Authenticatable
         'years_since_service',
         'mobile_verify'
     ];
+
+    protected $appends = ['profile_url'];
 
 
     /**
@@ -240,5 +244,14 @@ class User extends Authenticatable
 
     public function friends(){
         return $this->friendsOfMine->merge($this->friendOf);
+    }
+
+    public function searchableAs()
+    {
+        return 'users_index';
+    }
+
+    public function getProfileUrlAttribute(){
+        return  Storage::url($this->profile);
     }
 }

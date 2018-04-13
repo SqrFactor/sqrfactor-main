@@ -23,6 +23,7 @@ Route::get('/', 'Auth\LoginController@showLoginForm')->name('login')->middleware
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register')->middleware('guest:web');
 
 Auth::routes();
+Route::post("/profile/sendMessage/{id}","ChatFriendController@sendMessage")->middleware('auth');
 
 /*social login*/
 Route::get('login/{service}', 'Auth\SocialLoginController@redirect');
@@ -44,9 +45,13 @@ Route::get('activate/resend', 'Auth\ActivationController@resend')->name('auth.ac
 
 Route::get('news-feed', 'User\NewsFeedController@home')->middleware(['auth:web'])->name('home');
 
+Route::get('results', "User\SearchController@searchResults")->name('SearchResults')->middleware("auth:web");
+
+
 Route::get('whats-red', 'User\NewsFeedController@whatsRed')->name('whatsRed')->middleware('auth:web');
 
 Route::get("notification", "User\NotificationController@get")->name('notification')->middleware('auth:web');
+Route::post('/notification/get', 'NotificationController@get')->middleware('auth:web');
 
 /*post edit*/ 
 Route::get('post/status/edit/{usersPost}', 'User\NewsFeedController@postStatusGet')->name('post.status.edit')->middleware('auth:web');
@@ -119,7 +124,7 @@ Route::group(['prefix' => 'profile'], function () {
 
     Route::get('/detail/{user}', 'HomeController@viewProfile')->name('profileView');
 
-    Route::get('/detail/{user}/message', 'HomeController@sendMessage')->name('sendMessage');
+    // Route::post('/detail/{user}/message', 'ChatFriendController@sendMessage')->name('sendMessage');
 
    
     Route::get('follow/{user}', 'User\FollowController@following')->name('follow')->middleware('auth:web');
@@ -299,6 +304,8 @@ Route::group(['prefix' => 'parse'], function () {
     Route::post("post-image-remove", 'Parse\UserController@postImageRemove')->middleware('auth:web');
 
     Route::post("search", "User\SearchController@searchAjax")->middleware("auth:web");
+    
+
     Route::post("search-msg", "User\SearchController@msg")->middleware("auth:web");
 
     Route::post("portfolio", "Parse\UserController@addToPortfolio")->middleware("auth:web");
@@ -381,6 +388,8 @@ Route::post("follow-user", "Parse\SqrFactorController@followUser")->middleware("
 Route::get("profile-picture/{user}", "User\ProfilePictureController@get");
 Route::get("profile-name/{user}", "User\ProfilePictureController@getName");
 
+// Route::resource('chatFriend','ChatFriendController');
+
 /*admin panel*/
 Route::group(['prefix' => 'admin'], function () {
 
@@ -450,3 +459,10 @@ Route::group(['prefix' => 'message'],function(){
     Route::post('create','Message\Message@channelCreate')->name('createChannel')->middleware('auth:web');
 });
 
+
+// Route to content generation page
+
+Route::get('/generatecontent', [
+        'uses' => 'HomeController@contentGen',
+        'as' => 'generate-content',
+    ]);

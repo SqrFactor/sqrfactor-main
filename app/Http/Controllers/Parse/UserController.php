@@ -41,6 +41,7 @@ use Image;
 use Mail;
 use Response;
 use Validator;
+use App\Notifications\CommentNotifications;
 
 
 class UserController extends Controller
@@ -627,7 +628,13 @@ class UserController extends Controller
                     'body' => $request->comment_text,
                 ]);
 
+                
+
+
                 $commentLastInsert = Comment::findOrFail($comment->id);
+
+                $post = UsersPostShare::find($request->commentable_id);
+                User::find($post->user->id)->notify(new CommentNotifications($post));
 
                 $message = [
                     'return' => 'true',
