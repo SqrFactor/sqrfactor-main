@@ -60,7 +60,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
+<<<<<<< HEAD
 /******/ 	return __webpack_require__(__webpack_require__.s = 11);
+=======
+/******/ 	return __webpack_require__(__webpack_require__.s = 10);
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -71,7 +75,11 @@
 
 
 var bind = __webpack_require__(4);
+<<<<<<< HEAD
 var isBuffer = __webpack_require__(20);
+=======
+var isBuffer = __webpack_require__(19);
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 /*global toString:true*/
 
@@ -408,7 +416,11 @@ module.exports = g;
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(0);
+<<<<<<< HEAD
 var normalizeHeaderName = __webpack_require__(22);
+=======
+var normalizeHeaderName = __webpack_require__(21);
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -825,12 +837,21 @@ process.umask = function() { return 0; };
 
 
 var utils = __webpack_require__(0);
+<<<<<<< HEAD
 var settle = __webpack_require__(23);
 var buildURL = __webpack_require__(25);
 var parseHeaders = __webpack_require__(26);
 var isURLSameOrigin = __webpack_require__(27);
 var createError = __webpack_require__(7);
 var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(28);
+=======
+var settle = __webpack_require__(22);
+var buildURL = __webpack_require__(24);
+var parseHeaders = __webpack_require__(25);
+var isURLSameOrigin = __webpack_require__(26);
+var createError = __webpack_require__(7);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(27);
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -927,7 +948,11 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
+<<<<<<< HEAD
       var cookies = __webpack_require__(29);
+=======
+      var cookies = __webpack_require__(28);
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -1011,7 +1036,11 @@ module.exports = function xhrAdapter(config) {
 "use strict";
 
 
+<<<<<<< HEAD
 var enhanceError = __webpack_require__(24);
+=======
+var enhanceError = __webpack_require__(23);
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -1070,6 +1099,7 @@ module.exports = Cancel;
 /***/ }),
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
+<<<<<<< HEAD
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global, setImmediate) {/*!
@@ -1131,6 +1161,85 @@ var _toString = Object.prototype.toString;
 function toRawType (value) {
   return _toString.call(value).slice(8, -1)
 }
+=======
+
+__webpack_require__(11);
+module.exports = __webpack_require__(50);
+
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+/**
+ * First we will load all of this project's JavaScript dependencies which
+ * includes Vue and other libraries. It is a great starting point when
+ * building robust, powerful web applications using Vue and Laravel.
+ */
+
+__webpack_require__(12);
+
+window.Vue = __webpack_require__(38);
+
+/**
+ * Next, we will create a fresh Vue application instance and attach it to
+ * the page. Then, you may begin adding components to this application
+ * or customize the JavaScript scaffolding to fit your unique needs.
+ */
+
+Vue.component('chat', __webpack_require__(41));
+Vue.component('chat-composer', __webpack_require__(44));
+Vue.component('onlineuser', __webpack_require__(47));
+
+// Chat Application
+var chatApp = new Vue({
+    el: '#chatApp',
+    data: {
+        chats: '',
+        onlineUsers: ''
+    },
+    created: function created() {
+        var _this = this;
+
+        var userId = $('meta[name="userId"]').attr('content');
+        var friendId = $('meta[name="friendId"]').attr('content');
+
+        if (friendId != undefined) {
+            axios.post('/myallMSG/getChat/' + friendId).then(function (response) {
+                _this.chats = response.data;
+            });
+
+            Echo.private('Chat.' + friendId + '.' + userId).listen('BroadcastChat', function (e) {
+                _this.chats.push(e.chat);
+            });
+        }
+
+        if (userId != 'null') {
+            Echo.join('Online').here(function (users) {
+                _this.onlineUsers = users;
+            }).joining(function (user) {
+                _this.onlineUsers.push(user);
+            }).leaving(function (user) {
+                _this.onlineUsers = _this.onlineUsers.filter(function (u) {
+                    u != user;
+                });
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 12 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_laravel_echo__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_laravel_echo__);
+
+window._ = __webpack_require__(13);
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 /**
  * Strict object type check. Only returns true
@@ -1140,6 +1249,7 @@ function isPlainObject (obj) {
   return _toString.call(obj) === '[object Object]'
 }
 
+<<<<<<< HEAD
 function isRegExp (v) {
   return _toString.call(v) === '[object RegExp]'
 }
@@ -1151,6 +1261,13 @@ function isValidArrayIndex (val) {
   var n = parseFloat(String(val));
   return n >= 0 && Math.floor(n) === n && isFinite(val)
 }
+=======
+try {
+  window.$ = window.jQuery = __webpack_require__(15);
+
+  __webpack_require__(16);
+} catch (e) {}
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 /**
  * Convert a value to a string that is actually rendered.
@@ -1163,6 +1280,7 @@ function toString (val) {
       : String(val)
 }
 
+<<<<<<< HEAD
 /**
  * Convert a input value to a number for persistence.
  * If the conversion fails, return original string.
@@ -1171,6 +1289,9 @@ function toNumber (val) {
   var n = parseFloat(val);
   return isNaN(n) ? val : n
 }
+=======
+window.axios = __webpack_require__(17);
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 /**
  * Make a map and return a function for checking if a key
@@ -1239,6 +1360,7 @@ var camelize = cached(function (str) {
   return str.replace(camelizeRE, function (_, c) { return c ? c.toUpperCase() : ''; })
 });
 
+<<<<<<< HEAD
 /**
  * Capitalize a string.
  */
@@ -1253,6 +1375,20 @@ var hyphenateRE = /\B([A-Z])/g;
 var hyphenate = cached(function (str) {
   return str.replace(hyphenateRE, '-$1').toLowerCase()
 });
+=======
+window.Pusher = __webpack_require__(37);
+
+window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a({
+  authEndpoint: 'http://localhost:8000/broadcasting/auth',
+  broadcaster: 'pusher',
+  key: '0d04ad725a0910710e11',
+  cluster: 'ap2'
+});
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 /**
  * Simple bind polyfill for environments that do not support it... e.g.
@@ -12166,7 +12302,15 @@ if (token) {
  * allows your team to easily build robust real-time web applications.
  */
 
+<<<<<<< HEAD
 
+=======
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(14)(module)))
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports) {
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 window.Pusher = __webpack_require__(38);
 
@@ -12178,7 +12322,11 @@ window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a({
 });
 
 /***/ }),
+<<<<<<< HEAD
 /* 14 */
+=======
+/* 15 */
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -33491,9 +33639,15 @@ function getData( data ) {
 		return true;
 	}
 
+<<<<<<< HEAD
 	if ( data === "false" ) {
 		return false;
 	}
+=======
+/***/ }),
+/* 16 */
+/***/ (function(module, exports) {
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 	if ( data === "null" ) {
 		return null;
@@ -36597,6 +36751,7 @@ jQuery.fn.extend( {
 		// Show any hidden elements after setting opacity to 0
 		return this.filter( isHiddenWithinTree ).css( "opacity", 0 ).show()
 
+<<<<<<< HEAD
 			// Animate to the value specified
 			.end().animate( { opacity: to }, speed, easing, callback );
 	},
@@ -36614,6 +36769,17 @@ jQuery.fn.extend( {
 				}
 			};
 			doAnimation.finish = doAnimation;
+=======
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(18);
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 		return empty || optall.queue === false ?
 			this.each( doAnimation ) :
@@ -36635,11 +36801,18 @@ jQuery.fn.extend( {
 			this.queue( type || "fx", [] );
 		}
 
+<<<<<<< HEAD
 		return this.each( function() {
 			var dequeue = true,
 				index = type != null && type + "queueHooks",
 				timers = jQuery.timers,
 				data = dataPriv.get( this );
+=======
+var utils = __webpack_require__(0);
+var bind = __webpack_require__(4);
+var Axios = __webpack_require__(20);
+var defaults = __webpack_require__(2);
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 			if ( index ) {
 				if ( data[ index ] && data[ index ].stop ) {
@@ -36693,6 +36866,7 @@ jQuery.fn.extend( {
 				hooks.stop.call( this, true );
 			}
 
+<<<<<<< HEAD
 			// Look for any active animations, and finish them
 			for ( index = timers.length; index--; ) {
 				if ( timers[ index ].elem === this && timers[ index ].queue === type ) {
@@ -36707,6 +36881,18 @@ jQuery.fn.extend( {
 					queue[ index ].finish.call( this );
 				}
 			}
+=======
+// Expose Cancel & CancelToken
+axios.Cancel = __webpack_require__(9);
+axios.CancelToken = __webpack_require__(34);
+axios.isCancel = __webpack_require__(8);
+
+// Expose all/spread
+axios.all = function all(promises) {
+  return Promise.all(promises);
+};
+axios.spread = __webpack_require__(35);
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 			// Turn off finishing flag
 			delete data.finish;
@@ -36737,11 +36923,17 @@ jQuery.each( {
 	};
 } );
 
+<<<<<<< HEAD
 jQuery.timers = [];
 jQuery.fx.tick = function() {
 	var timer,
 		i = 0,
 		timers = jQuery.timers;
+=======
+/***/ }),
+/* 19 */
+/***/ (function(module, exports) {
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 	fxNow = Date.now();
 
@@ -36765,11 +36957,17 @@ jQuery.fx.timer = function( timer ) {
 	jQuery.fx.start();
 };
 
+<<<<<<< HEAD
 jQuery.fx.interval = 13;
 jQuery.fx.start = function() {
 	if ( inProgress ) {
 		return;
 	}
+=======
+/***/ }),
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 	inProgress = true;
 	schedule();
@@ -36779,9 +36977,18 @@ jQuery.fx.stop = function() {
 	inProgress = null;
 };
 
+<<<<<<< HEAD
 jQuery.fx.speeds = {
 	slow: 600,
 	fast: 200,
+=======
+var defaults = __webpack_require__(2);
+var utils = __webpack_require__(0);
+var InterceptorManager = __webpack_require__(29);
+var dispatchRequest = __webpack_require__(30);
+var isAbsoluteURL = __webpack_require__(32);
+var combineURLs = __webpack_require__(33);
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 	// Default speed
 	_default: 400
@@ -36835,12 +37042,18 @@ jQuery.fn.extend( {
 		return access( this, jQuery.attr, name, value, arguments.length > 1 );
 	},
 
+<<<<<<< HEAD
 	removeAttr: function( name ) {
 		return this.each( function() {
 			jQuery.removeAttr( this, name );
 		} );
 	}
 } );
+=======
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 jQuery.extend( {
 	attr: function( elem, name, value ) {
@@ -36870,10 +37083,16 @@ jQuery.extend( {
 				return;
 			}
 
+<<<<<<< HEAD
 			if ( hooks && "set" in hooks &&
 				( ret = hooks.set( elem, value, name ) ) !== undefined ) {
 				return ret;
 			}
+=======
+/***/ }),
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 			elem.setAttribute( name, value + "" );
 			return value;
@@ -36883,7 +37102,11 @@ jQuery.extend( {
 			return ret;
 		}
 
+<<<<<<< HEAD
 		ret = jQuery.find.attr( elem, name );
+=======
+var createError = __webpack_require__(7);
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 		// Non-existent attributes return null, we normalize to undefined
 		return ret == null ? undefined : ret;
@@ -36905,9 +37128,15 @@ jQuery.extend( {
 		}
 	},
 
+<<<<<<< HEAD
 	removeAttr: function( elem, value ) {
 		var name,
 			i = 0,
+=======
+/***/ }),
+/* 23 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 			// Attribute names can contain non-HTML whitespace characters
 			// https://html.spec.whatwg.org/multipage/syntax.html#attributes-2
@@ -36938,9 +37167,15 @@ boolHook = {
 jQuery.each( jQuery.expr.match.bool.source.match( /\w+/g ), function( i, name ) {
 	var getter = attrHandle[ name ] || jQuery.find.attr;
 
+<<<<<<< HEAD
 	attrHandle[ name ] = function( elem, name, isXML ) {
 		var ret, handle,
 			lowercaseName = name.toLowerCase();
+=======
+/***/ }),
+/* 24 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 		if ( !isXML ) {
 
@@ -37000,9 +37235,15 @@ jQuery.extend( {
 			return ( elem[ name ] = value );
 		}
 
+<<<<<<< HEAD
 		if ( hooks && "get" in hooks && ( ret = hooks.get( elem, name ) ) !== null ) {
 			return ret;
 		}
+=======
+/***/ }),
+/* 25 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 		return elem[ name ];
 	},
@@ -37055,6 +37296,7 @@ if ( !support.optSelected ) {
 
 			/* eslint no-unused-expressions: "off" */
 
+<<<<<<< HEAD
 			var parent = elem.parentNode;
 			if ( parent && parent.parentNode ) {
 				parent.parentNode.selectedIndex;
@@ -37062,6 +37304,11 @@ if ( !support.optSelected ) {
 			return null;
 		},
 		set: function( elem ) {
+=======
+/***/ }),
+/* 26 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 			/* eslint no-unused-expressions: "off" */
 
@@ -37128,7 +37375,13 @@ jQuery.fn.extend( {
 			} );
 		}
 
+<<<<<<< HEAD
 		classes = classesToArray( value );
+=======
+/***/ }),
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 		if ( classes.length ) {
 			while ( ( elem = this[ i++ ] ) ) {
@@ -37171,9 +37424,15 @@ jQuery.fn.extend( {
 
 		classes = classesToArray( value );
 
+<<<<<<< HEAD
 		if ( classes.length ) {
 			while ( ( elem = this[ i++ ] ) ) {
 				curValue = getClass( elem );
+=======
+/***/ }),
+/* 28 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 				// This expression is here for better compressibility (see addClass)
 				cur = elem.nodeType === 1 && ( " " + stripAndCollapse( curValue ) + " " );
@@ -37242,9 +37501,15 @@ jQuery.fn.extend( {
 				className = getClass( this );
 				if ( className ) {
 
+<<<<<<< HEAD
 					// Store className if set
 					dataPriv.set( this, "__className__", className );
 				}
+=======
+/***/ }),
+/* 29 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 				// If the element has a class name or if we're passed `false`,
 				// then remove the whole classname (if there was one, the above saved it).
@@ -37287,10 +37552,16 @@ jQuery.fn.extend( {
 		var hooks, ret, valueIsFunction,
 			elem = this[ 0 ];
 
+<<<<<<< HEAD
 		if ( !arguments.length ) {
 			if ( elem ) {
 				hooks = jQuery.valHooks[ elem.type ] ||
 					jQuery.valHooks[ elem.nodeName.toLowerCase() ];
+=======
+/***/ }),
+/* 30 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 				if ( hooks &&
 					"get" in hooks &&
@@ -37301,10 +37572,17 @@ jQuery.fn.extend( {
 
 				ret = elem.value;
 
+<<<<<<< HEAD
 				// Handle most common string cases
 				if ( typeof ret === "string" ) {
 					return ret.replace( rreturn, "" );
 				}
+=======
+var utils = __webpack_require__(0);
+var transformData = __webpack_require__(31);
+var isCancel = __webpack_require__(8);
+var defaults = __webpack_require__(2);
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 				// Handle cases where value is null/undef or number
 				return ret == null ? "" : ret;
@@ -37360,6 +37638,7 @@ jQuery.extend( {
 				return val != null ?
 					val :
 
+<<<<<<< HEAD
 					// Support: IE <=10 - 11 only
 					// option.text throws exceptions (#14686, #14858)
 					// Strip and collapse whitespace
@@ -37375,6 +37654,11 @@ jQuery.extend( {
 					one = elem.type === "select-one",
 					values = one ? null : [],
 					max = one ? index + 1 : options.length;
+=======
+/***/ }),
+/* 31 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 				if ( index < 0 ) {
 					i = max;
@@ -37399,10 +37683,16 @@ jQuery.extend( {
 						// Get the specific value for the option
 						value = jQuery( option ).val();
 
+<<<<<<< HEAD
 						// We don't need an array for one selects
 						if ( one ) {
 							return value;
 						}
+=======
+/***/ }),
+/* 32 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 						// Multi-Selects return an array
 						values.push( value );
@@ -37421,7 +37711,13 @@ jQuery.extend( {
 				while ( i-- ) {
 					option = options[ i ];
 
+<<<<<<< HEAD
 					/* eslint-disable no-cond-assign */
+=======
+/***/ }),
+/* 33 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 					if ( option.selected =
 						jQuery.inArray( jQuery.valHooks.option.get( option ), values ) > -1
@@ -37458,10 +37754,20 @@ jQuery.each( [ "radio", "checkbox" ], function() {
 	}
 } );
 
+<<<<<<< HEAD
+=======
+/***/ }),
+/* 34 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 
 
+<<<<<<< HEAD
 // Return jQuery for attributes-only inclusion
+=======
+var Cancel = __webpack_require__(9);
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 
 support.focusin = "onfocusin" in window;
@@ -37483,10 +37789,16 @@ jQuery.extend( jQuery.event, {
 
 		cur = lastElement = tmp = elem = elem || document;
 
+<<<<<<< HEAD
 		// Don't do events on text and comment nodes
 		if ( elem.nodeType === 3 || elem.nodeType === 8 ) {
 			return;
 		}
+=======
+/***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 		// focus/blur morphs to focusin/out; ensure we're not firing them right now
 		if ( rfocusMorph.test( type + jQuery.event.triggered ) ) {
@@ -37507,12 +37819,18 @@ jQuery.extend( jQuery.event, {
 			event :
 			new jQuery.Event( type, typeof event === "object" && event );
 
+<<<<<<< HEAD
 		// Trigger bitmask: & 1 for native handlers; & 2 for jQuery (always true)
 		event.isTrigger = onlyHandlers ? 2 : 3;
 		event.namespace = namespaces.join( "." );
 		event.rnamespace = event.namespace ?
 			new RegExp( "(^|\\.)" + namespaces.join( "\\.(?:.*\\.|)" ) + "(\\.|$)" ) :
 			null;
+=======
+/***/ }),
+/* 36 */
+/***/ (function(module, exports) {
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 		// Clean up the event in case it is being reused
 		event.result = undefined;
@@ -37918,6 +38236,7 @@ function inspectPrefiltersOrTransports( structure, options, originalOptions, jqX
 	var inspected = {},
 		seekingTransport = ( structure === transports );
 
+<<<<<<< HEAD
 	function inspect( dataType ) {
 		var selected;
 		inspected[ dataType ] = true;
@@ -37925,6 +38244,19 @@ function inspectPrefiltersOrTransports( structure, options, originalOptions, jqX
 			var dataTypeOrTransport = prefilterOrFactory( options, originalOptions, jqXHR );
 			if ( typeof dataTypeOrTransport === "string" &&
 				!seekingTransport && !inspected[ dataTypeOrTransport ] ) {
+=======
+/***/ }),
+/* 37 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*!
+ * Pusher JavaScript Library v4.2.2
+ * https://pusher.com/
+ *
+ * Copyright 2017, Pusher
+ * Released under the MIT licence.
+ */
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 				options.dataTypes.unshift( dataTypeOrTransport );
 				inspect( dataTypeOrTransport );
@@ -39054,8 +39386,14 @@ jQuery.ajaxPrefilter( "json jsonp", function( s, originalSettings, jqXHR ) {
 			return responseContainer[ 0 ];
 		};
 
+<<<<<<< HEAD
 		// Force json dataType
 		s.dataTypes[ 0 ] = "json";
+=======
+/***/ }),
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 		// Install callback
 		overwritten = window[ callbackName ];
@@ -47922,7 +48260,99 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ })
 /******/ ])
 });
+<<<<<<< HEAD
 ;
+=======
+
+var mount = Vue.prototype.$mount;
+Vue.prototype.$mount = function (
+  el,
+  hydrating
+) {
+  el = el && query(el);
+
+  /* istanbul ignore if */
+  if (el === document.body || el === document.documentElement) {
+    "development" !== 'production' && warn(
+      "Do not mount Vue to <html> or <body> - mount to normal elements instead."
+    );
+    return this
+  }
+
+  var options = this.$options;
+  // resolve template/el and convert to render function
+  if (!options.render) {
+    var template = options.template;
+    if (template) {
+      if (typeof template === 'string') {
+        if (template.charAt(0) === '#') {
+          template = idToTemplate(template);
+          /* istanbul ignore if */
+          if ("development" !== 'production' && !template) {
+            warn(
+              ("Template element not found or is empty: " + (options.template)),
+              this
+            );
+          }
+        }
+      } else if (template.nodeType) {
+        template = template.innerHTML;
+      } else {
+        if (true) {
+          warn('invalid template option:' + template, this);
+        }
+        return this
+      }
+    } else if (el) {
+      template = getOuterHTML(el);
+    }
+    if (template) {
+      /* istanbul ignore if */
+      if ("development" !== 'production' && config.performance && mark) {
+        mark('compile');
+      }
+
+      var ref = compileToFunctions(template, {
+        shouldDecodeNewlines: shouldDecodeNewlines,
+        shouldDecodeNewlinesForHref: shouldDecodeNewlinesForHref,
+        delimiters: options.delimiters,
+        comments: options.comments
+      }, this);
+      var render = ref.render;
+      var staticRenderFns = ref.staticRenderFns;
+      options.render = render;
+      options.staticRenderFns = staticRenderFns;
+
+      /* istanbul ignore if */
+      if ("development" !== 'production' && config.performance && mark) {
+        mark('compile end');
+        measure(("vue " + (this._name) + " compile"), 'compile', 'compile end');
+      }
+    }
+  }
+  return mount.call(this, el, hydrating)
+};
+
+/**
+ * Get outerHTML of elements, taking care
+ * of SVG elements in IE as well.
+ */
+function getOuterHTML (el) {
+  if (el.outerHTML) {
+    return el.outerHTML
+  } else {
+    var container = document.createElement('div');
+    container.appendChild(el.cloneNode(true));
+    return container.innerHTML
+  }
+}
+
+Vue.compile = compileToFunctions;
+
+module.exports = Vue;
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(39).setImmediate))
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 /***/ }),
 /* 39 */
@@ -48183,6 +48613,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(5)))
+<<<<<<< HEAD
 
 /***/ }),
 /* 41 */
@@ -48248,6 +48679,8 @@ return VueChatScroll;
 
 })));
 
+=======
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 /***/ }),
 /* 42 */
@@ -48256,9 +48689,15 @@ return VueChatScroll;
 var disposed = false
 var normalizeComponent = __webpack_require__(3)
 /* script */
+<<<<<<< HEAD
 var __vue_script__ = __webpack_require__(43)
 /* template */
 var __vue_template__ = __webpack_require__(44)
+=======
+var __vue_script__ = __webpack_require__(42)
+/* template */
+var __vue_template__ = __webpack_require__(43)
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -48297,7 +48736,11 @@ module.exports = Component.exports
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 43 */
+=======
+/* 42 */
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -48361,6 +48804,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+<<<<<<< HEAD
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['chats', 'userid', 'friendid']
@@ -48369,6 +48813,37 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 /* 44 */
+=======
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['chats', 'userid', 'friendid', 'user', 'friend'],
+    filters: {
+        moment: function (_moment) {
+            function moment(_x) {
+                return _moment.apply(this, arguments);
+            }
+
+            moment.toString = function () {
+                return _moment.toString();
+            };
+
+            return moment;
+        }(function (date) {
+            return moment(date).format('MMMM Do YYYY, h:mm:ss a');
+        })
+    },
+    updated: function updated() {
+
+        var container = document.querySelector(".scroll");
+        console.log(container.clientHeight);
+        container.scrollTop = 12000;
+    }
+});
+
+/***/ }),
+/* 43 */
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -48385,6 +48860,7 @@ var render = function() {
           _c(
             "div",
             {
+<<<<<<< HEAD
               staticClass: "inside-chat-cont scrollbar scrollbar-primary",
               staticStyle: { height: "79%", width: "99.8%" },
               attrs: { id: "in-chat-cont" }
@@ -48495,11 +48971,98 @@ var render = function() {
                                               },
                                               [
                                                 _vm._m(1, true),
+=======
+              staticClass: "scroll",
+              staticStyle: {
+                height: "500px",
+                width: "99.9%",
+                overflow: "scroll"
+              }
+            },
+            [
+              _vm.chats.length != 0
+                ? _c("div", { staticClass: "chats" }, [
+                    _c(
+                      "ul",
+                      {
+                        staticClass:
+                          "notification-list chat-message chat-message-field"
+                      },
+                      _vm._l(_vm.chats, function(chat) {
+                        return _c("li", [
+                          chat.user_from == _vm.userid
+                            ? _c(
+                                "div",
+                                {
+                                  staticClass: "chat-right ",
+                                  staticStyle: { width: "100%" }
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "media",
+                                      staticStyle: {
+                                        "border-bottom": "1px solid #F3F4F8",
+                                        "padding-bottom": "10px"
+                                      }
+                                    },
+                                    [
+                                      _vm.user.profile.substring(0, 1) == "h"
+                                        ? _c("img", {
+                                            staticClass: "d-flex author-thumb",
+                                            attrs: {
+                                              src: _vm.user.profile,
+                                              alt: "author"
+                                            }
+                                          })
+                                        : _c("img", {
+                                            staticClass: "d-flex author-thumb",
+                                            attrs: {
+                                              src:
+                                                "http://localhost:8000/" +
+                                                _vm.user.profile,
+                                              alt: "author"
+                                            }
+                                          }),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "media-body" }, [
+                                        _c(
+                                          "div",
+                                          { staticClass: "notification-event" },
+                                          [
+                                            _c(
+                                              "div",
+                                              { staticClass: "clearfix" },
+                                              [
+                                                _c(
+                                                  "a",
+                                                  {
+                                                    staticClass:
+                                                      "h6 notification-friend",
+                                                    attrs: { href: "#" }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\n                                                " +
+                                                        _vm._s(
+                                                          _vm.user.first_name
+                                                        ) +
+                                                        " " +
+                                                        _vm._s(
+                                                          _vm.user.last_name
+                                                        ) +
+                                                        "\n                                            "
+                                                    )
+                                                  ]
+                                                ),
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
                                                 _vm._v(" "),
                                                 _c(
                                                   "span",
                                                   {
                                                     staticClass:
+<<<<<<< HEAD
                                                       "chat-message-item"
                                                   },
                                                   [
@@ -48507,10 +49070,35 @@ var render = function() {
                                                       "\r\n                                        " +
                                                         _vm._s(chat.chat) +
                                                         "\r\n                                    "
+=======
+                                                      "notification-date"
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "time",
+                                                      {
+                                                        staticClass:
+                                                          "entry-date updated",
+                                                        attrs: {
+                                                          datetime:
+                                                            "2004-07-24T18:18"
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          _vm._s(
+                                                            _vm._f("moment")(
+                                                              chat.created_at
+                                                            )
+                                                          )
+                                                        )
+                                                      ]
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
                                                     )
                                                   ]
                                                 )
                                               ]
+<<<<<<< HEAD
                                             )
                                           ]
                                         )
@@ -48526,6 +49114,176 @@ var render = function() {
                 : _c("div", { staticClass: "no-message" }, [
                     _c("p", [_vm._v("There is no message!")])
                   ])
+=======
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass: "chat-message-item"
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "\n                                            " +
+                                                    _vm._s(chat.chat) +
+                                                    "\n                                        "
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ])
+                                    ]
+                                  )
+                                ]
+                              )
+                            : _c(
+                                "div",
+                                {
+                                  staticClass: "chat-left",
+                                  staticStyle: { width: "100%" }
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "media",
+                                      staticStyle: {
+                                        "border-bottom": "1px solid #F3F4F8",
+                                        "padding-bottom": "10px"
+                                      }
+                                    },
+                                    [
+                                      _vm.friend.profile.substring(0, 1) == "h"
+                                        ? _c("img", {
+                                            staticClass: "d-flex author-thumb",
+                                            attrs: {
+                                              src: _vm.friend.profile,
+                                              alt: "author"
+                                            }
+                                          })
+                                        : _c("img", {
+                                            staticClass: "d-flex author-thumb",
+                                            attrs: {
+                                              src:
+                                                "http://localhost:8000/" +
+                                                _vm.friend.profile,
+                                              alt: "author"
+                                            }
+                                          }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass: "media-body",
+                                          staticStyle: { width: "100%" }
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "notification-event"
+                                            },
+                                            [
+                                              _c(
+                                                "div",
+                                                { staticClass: "clearfix" },
+                                                [
+                                                  _c(
+                                                    "a",
+                                                    {
+                                                      staticClass:
+                                                        "h6 notification-friend",
+                                                      attrs: { href: "#" }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        "\n                                            " +
+                                                          _vm._s(
+                                                            _vm.friend
+                                                              .first_name
+                                                          ) +
+                                                          " " +
+                                                          _vm._s(
+                                                            _vm.friend.last_name
+                                                          ) +
+                                                          "\n                                            "
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass:
+                                                        "notification-date"
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "time",
+                                                        {
+                                                          staticClass:
+                                                            "entry-date updated",
+                                                          attrs: {
+                                                            datetime:
+                                                              "2004-07-24T18:18"
+                                                          }
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            _vm._s(
+                                                              _vm._f("moment")(
+                                                                chat.created_at
+                                                              )
+                                                            )
+                                                          )
+                                                        ]
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "chat-message-item"
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "\n                                            " +
+                                                      _vm._s(chat.chat) +
+                                                      "\n                                        "
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                        ])
+                      })
+                    )
+                  ])
+                : _c(
+                    "div",
+                    { staticClass: "no-message" },
+                    [
+                      _c("br"),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("center", [
+                        _c("h4", [_vm._v("There is no message to display!")])
+                      ])
+                    ],
+                    1
+                  )
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
             ]
           )
         ]
@@ -48592,15 +49350,25 @@ if (false) {
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 45 */
+=======
+/* 44 */
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(3)
 /* script */
+<<<<<<< HEAD
 var __vue_script__ = __webpack_require__(46)
 /* template */
 var __vue_template__ = __webpack_require__(47)
+=======
+var __vue_script__ = __webpack_require__(45)
+/* template */
+var __vue_template__ = __webpack_require__(46)
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -48639,7 +49407,11 @@ module.exports = Component.exports
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 46 */
+=======
+/* 45 */
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -48658,7 +49430,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+<<<<<<< HEAD
 //
+=======
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['chats', 'userid', 'friendid'],
@@ -48702,7 +49477,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
+<<<<<<< HEAD
 /* 47 */
+=======
+/* 46 */
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -48747,7 +49526,10 @@ var render = function() {
       _vm._v(" "),
       _c("i", {
         staticClass: "fa fa-send fa-primary",
+<<<<<<< HEAD
         attrs: { onclick: "scrollToEnd()" },
+=======
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
         on: { click: _vm.sendChat }
       })
     ])
@@ -48764,15 +49546,25 @@ if (false) {
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 48 */
+=======
+/* 47 */
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(3)
 /* script */
+<<<<<<< HEAD
 var __vue_script__ = __webpack_require__(49)
 /* template */
 var __vue_template__ = __webpack_require__(50)
+=======
+var __vue_script__ = __webpack_require__(48)
+/* template */
+var __vue_template__ = __webpack_require__(49)
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -48811,7 +49603,11 @@ module.exports = Component.exports
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 49 */
+=======
+/* 48 */
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -48825,9 +49621,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+<<<<<<< HEAD
 //
 //
 //
+=======
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['friend', 'onlineusers'],
@@ -48839,7 +49638,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
+<<<<<<< HEAD
 /* 50 */
+=======
+/* 49 */
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -48857,6 +49660,7 @@ var render = function() {
             staticClass: "fa fa-circle",
             staticStyle: { color: "red" }
           })
+<<<<<<< HEAD
     ]),
     _vm._v(" "),
     _vm._m(0)
@@ -48872,6 +49676,12 @@ var staticRenderFns = [
     ])
   }
 ]
+=======
+    ])
+  ])
+}
+var staticRenderFns = []
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -48882,7 +49692,11 @@ if (false) {
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 51 */
+=======
+/* 50 */
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

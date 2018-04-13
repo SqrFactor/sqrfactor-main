@@ -15,11 +15,16 @@
     "cross-env": "^5.0.1",
     "jquery": "^3.1.1",
     "laravel-mix": "^1.0",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.5",
     "vue": "^2.5.16"
   },
   "dependencies": {
+    "font-awesome": "^4.7.0",
     "laravel-echo": "^1.3.5",
+<<<<<<< HEAD
+=======
+    "moment": "^2.22.0",
+>>>>>>> 75675eda009726e6c0513640c2acfb40ca19234e
     "pusher-js": "^4.2.2",
     "vue-chat-scroll": "^1.2.1"
   }

@@ -33,9 +33,9 @@
         <div class="ui-block-title">
             <h6 class="title">Chat / Messages</h6>
             <!-- <a href="#" class="more">
-                <svg class="olymp-three-dots-icon">
+                <!-- <svg class="olymp-three-dots-icon">
                     <use xlink:href="../assets/icons/icons.svg#olymp-three-dots-icon"></use>
-                </svg>
+                </svg> -->
             </a> -->
         </div>
 
@@ -55,19 +55,27 @@
                     <!-- message list -->
                     <ul class="notification-list chat-message chat-message-list">
                         @foreach($friends as $friend)
-                            <a href="{{url('/myallMSG/'.$friend->id)}}" style="justify-content: space-between;">
                                 <li>
-                                    <div class="author-thumb">
-                                        <img src="{{asset('assets/images/avatar-1.jpg')}}" alt="author">
-                                    </div>
+                                    <a href="{{url('/myallMSG/'.$friend->id)}}" style="justify-content: space-between;">
+                                        <div class="author-thumb">
+                                            <img src="{{URL::asset($friend->profile)}}" alt="author">
+                                        </div>
+                                    </a>
                                     <div class="notification-event">
-                                        <a href="#" class="h6 notification-friend mb-1">{{$friend->first_name}}&nbsp;{{$friend->last_name}}</a>
+                                        <a href="{{url('/myallMSG/'.$friend->id)}}" class="h6 notification-friend mb-1">
+                                            {{$friend->first_name}}&nbsp;{{$friend->last_name}}
+                                        </a>
                                     </div>
+<<<<<<< .mine
                                     <onlineuser v-bind:friend ="{{$friend}}" v-bind:onlineusers="onlineUsers">
                                         
                                     </onlineuser>
+=======
+                                    <onlineuser v-bind:friend ="{{$friend}}" v-bind:onlineusers="onlineUsers"></onlineuser>
+
+
+>>>>>>> .theirs
                                 </li>
-                            </a>
                         @endforeach
                     </ul>
                 </div>
@@ -80,48 +88,75 @@
                 <!-- chat field -->
                 <div class="chat-field">
                     <div class="ui-block-title">
+
                         <h6 class="title">{{$chat_friend->first_name}}&nbsp{{$chat_friend->last_name}}</h6>
+<<<<<<< .mine
                         <div class="more">
                             <svg class="olymp-three-dots-icon"><use xlink:href="{{asset('assets/icons/icons.svg#olymp-three-dots-icon')}}"></use></svg>
                         </div>
+
+
+
+=======
+                        <!-- {{$chat_friend}}
+                        <br>
+                        {{Auth::user()->first_name}} -->
+                        <div class="more">
+                            <svg class="olymp-three-dots-icon"><use xlink:href="{{asset('assets/icons/icons.svg#olymp-three-dots-icon')}}"></use></svg>
+                        </div>
+>>>>>>> .theirs
                     </div>
+                    <div class="chat-field-content" id="showAllMsg">
+<<<<<<< .mine
                     <div class="chat-field-content " id="showAllMsg">
                         <chat v-bind:chats="chats" v-bind:userid="{{Auth::user()->id}}" v-bind:friendid="{{$chat_friend->id}}"></chat>
+
+=======
+                    <div class="chat-field-content" id="showAllMsg">
+                        <chat v-bind:chats="chats" v-bind:userid="{{Auth::user()->id}}" v-bind:friendid="{{$chat_friend->id}}"
+                            v-bind:user="{{Auth::user()}}"  v-bind:friend="{{$chat_friend}}"></chat>
+>>>>>>> .theirs
                     </div>
                 </div>
-                <!-- end chat field -->
             </div>
-            <!-- end right column -->
-
         </div>
     </div>
 </div>
 
+<<<<<<< .mine
 
 
+
+=======
+
+
+
+>>>>>>> .theirs
 @endsection
  
 @section('scripts')
+    <script src="{{asset('js/app.js')}}"></script>
+<<<<<<< .mine
    
     <script src="{{asset('js/app.js')}}"></script>
+=======
+    <script src="{{asset('js/app.js')}}"></script>
+
+>>>>>>> .theirs
     <script type="text/javascript" src="{{asset('assets/js/jquery-2.1.3.min.js')}}"></script>    
     <script src="{{asset('assets/js/chat-realtime-static-all.js')}}"></script>
     <!-- Bootstrap script -->
     <script src="{{asset('vendor/tether/dist/js/tether.min.js')}}"></script>
     <script src="{{asset('vendor/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-
     <!-- Js effects for material design. + Tooltips -->
     <script src="{{asset('assets/js/material.min.js')}}"></script>
     <!-- Helper scripts (Tabs, Equal height, Scrollbar, etc) -->
     <script src="{{asset('assets/js/theme-plugins.js')}}"></script>
     <!-- Init functions -->
     <script src="{{asset('assets/js/main.js')}}"></script>
-
     <!-- vendor script -->
     <script src="{{asset('assets/js/messages.js')}}"></script>
-
     <!-- script -->
-
     <!-- app script -->
     <script src="{{asset('assets/js/app.js')}}"></script>
     <script src="{{asset('assets/js/script.js')}}"></script>

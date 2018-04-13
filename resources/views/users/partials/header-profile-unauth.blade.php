@@ -40,13 +40,28 @@
                         @else
                         <a href="{{ route('login') }}" class="btn btn-control follow_ " data-id="5">
                             Following
-
-                            <div class="ripple-container"></div></a>
-
-                        <a href="{{ route('login') }}" class="btn btn-control launching_soon">
+                            <div class="ripple-container"></div>
+                        </a>
+                        <a href="#" class="btn btn-control launching_soon" data-toggle="modal" data-target="#myModal">
                             Message
                             <div class="ripple-container"></div>
                         </a>
+                        <div id="myModal" class="modal fade" role="dialog">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Modal Header</h4>
+                              </div>
+                              <div class="modal-body">
+                                <p>Some text in the modal.</p>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                     @endif
 
                 </div>

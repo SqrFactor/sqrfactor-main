@@ -23,6 +23,7 @@ Route::get('/', 'Auth\LoginController@showLoginForm')->name('login')->middleware
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register')->middleware('guest:web');
 
 Auth::routes();
+Route::post("/profile/sendMessage/{id}","ChatFriendController@sendMessage")->middleware('auth');
 
 /*social login*/
 Route::get('login/{service}', 'Auth\SocialLoginController@redirect');
@@ -123,7 +124,7 @@ Route::group(['prefix' => 'profile'], function () {
 
     Route::get('/detail/{user}', 'HomeController@viewProfile')->name('profileView');
 
-    Route::get('/detail/{user}/message', 'HomeController@sendMessage')->name('sendMessage');
+    // Route::post('/detail/{user}/message', 'ChatFriendController@sendMessage')->name('sendMessage');
 
    
     Route::get('follow/{user}', 'User\FollowController@following')->name('follow')->middleware('auth:web');
@@ -386,6 +387,8 @@ Route::post("follow-user", "Parse\SqrFactorController@followUser")->middleware("
 //
 Route::get("profile-picture/{user}", "User\ProfilePictureController@get");
 Route::get("profile-name/{user}", "User\ProfilePictureController@getName");
+
+// Route::resource('chatFriend','ChatFriendController');
 
 /*admin panel*/
 Route::group(['prefix' => 'admin'], function () {

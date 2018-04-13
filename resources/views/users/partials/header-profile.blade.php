@@ -1,9 +1,7 @@
 <div class="header-spacer-fit"></div>
 @if(Request::path() == isset($user) && 'profile/detail/'.$user->user_name || Request::path() == isset($user) && 'about/'.$user->user_name)
-
-
     @if(Auth::check() && $user->id != Auth::user()->id)
-
+    @include('users.partials.flash')
         <div class="ui-block profile-header">
             <div class="top-header top-header-favorit">
                 <div class="top-header-thumb">
@@ -53,10 +51,10 @@
 
                             </a>
 
-                            <a href="{{ route('sendMessage',$user->user_name) }}" class="btn btn-control">
+                            <a href="#" class="btn btn-control" data-id="{{$user->id}}" data-toggle="modal" data-target="#myModal">
                                 Message
                                 <div class="ripple-container"></div>
-                            </a>
+                            </a>                            
                            <!-- <a href="javascript:void(0)" id="message" class="btn btn-control" data-attr-user-id ="{{$user->id}}" >
                                 Message
                                 <div class="ripple-container"></div>
@@ -116,28 +114,36 @@
                         </ul>
                     </div>
                 </div>
+                <div id="myModal" class="modal" role="dialog" style="padding:100px">
+                    <div class="modal-dialog">
+                        <form action="{{url('/profile/sendMessage/'.$user->id)}}" method="POST" enctype="multipart/form-data">
+                            {{csrf_field()}}
+                            <div class="modal-content">
+                                <div class="modal-header"> 
+                                    <h4 class="modal-title">Send a message</h4>                                      
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                    <textarea class="form-control" name="chat">Write your message</textarea>                                        
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" id="sendMessage" class="btn btn-success">Send</button>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
                 <!-- .profile-section -->
             </div>
         </div>
 
     @else
         {{--{{ dd('false2') }}--}}
-
-
-
-
-
         @include('users.partials.header-profile-unauth')
     @endif
 
 @else
     {{-- {{ dd('true') }}--}}
-
-
-
-
-
-
     @include('users.partials.header-profile-auth')
-
 @endif

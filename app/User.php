@@ -6,16 +6,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Notifications\MyResetPassword;
-use Laravel\Scout\Searchable;
 use App\Portfolio;
 use Auth;
+use Illuminate\Support\Facades\Storage;
 
 
 class User extends Authenticatable
 {
     use Notifiable, SoftDeletes;
 
-    // use Searchable;
 
     /**
      * The attributes that are mass assignable.
@@ -60,6 +59,8 @@ class User extends Authenticatable
         'years_since_service',
         'mobile_verify'
     ];
+
+    protected $appends = ['profile_url'];
 
 
     /**
@@ -245,9 +246,12 @@ class User extends Authenticatable
     public function friends(){
         return $this->friendsOfMine->merge($this->friendOf);
     }
-
     public function searchableAs()
     {
         return 'users_index';
+    }
+
+    public function getProfileUrlAttribute(){
+        return  Storage::url($this->profile);
     }
 }
