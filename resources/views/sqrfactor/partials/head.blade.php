@@ -7,9 +7,9 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
 <!-- Bootstrap CSS -->
 <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<!-- <link href="{{ asset('assets/css/app-bootstrap.css') }}" rel="stylesheet">
-<link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet"> -->
+<!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+<link href="{{ asset('assets/css/app-bootstrap.css') }}" rel="stylesheet">
+<!-- <link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet"> -->
 <!-- Font Awesome -->
 <link href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
 <!-- Vendor CSS -->
